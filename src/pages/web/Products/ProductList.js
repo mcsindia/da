@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { productData } from './ProductData';
 import { Header } from '../../../components/web/Header/Header';
 import { Footer } from '../../../components/web/Footer/Footer';
+import { ProductSidebar } from './ProductSidebar';
 
 export const ProductList = () => {
     const [showAll, setShowAll] = useState(false);
@@ -12,6 +13,8 @@ export const ProductList = () => {
     return (
         <>
             <Header />
+            <div className='product-page-container'>
+            <ProductSidebar/>
             <div className="product-list-section py-5">
                 <Container>
                     <div className="product-headers text-center mb-5">
@@ -66,6 +69,7 @@ export const ProductList = () => {
                         </div>
                     )}
                 </Container>
+            </div>
             </div>
             <Footer />
         </>

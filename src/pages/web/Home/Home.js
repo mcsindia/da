@@ -6,6 +6,7 @@ import { TrendingProducts } from '../TrendingProducts/TrendingProducts'
 import { StorySection } from '../StorySection/StrorySection'
 import { NewArrivals } from '../NewArrivals/NewArrivals'
 import { SpecialOffers } from '../SpecialOffers/SpecialOffers'
+import { Testimonial } from '../Testimonial/Testimonial'
 
 export const Home = () => {
   return (
@@ -16,6 +17,7 @@ export const Home = () => {
         <StorySection/>
         <NewArrivals/>
         <SpecialOffers/>
+        <Testimonial/>
         <Footer/>
     </div>
   )

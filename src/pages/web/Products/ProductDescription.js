@@ -13,7 +13,7 @@ export const ProductDescription = () => {
     return (
         <>
             <Header />
-            <Container className="py-5">
+            <Container className="product-discription-section py-5">
                 {product ? (
                 <Row className="flex-column flex-md-row align-items-start">
                 {/* Media Section */}
