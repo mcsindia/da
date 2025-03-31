@@ -9,6 +9,15 @@ import prod8 from '../../../assets/images/blockprint-cover.jfif';
 import prod9 from '../../../assets/images/brass-pooja-thali.avif';
 import prod10 from '../../../assets/images/table-lamp.jfif';
 import prod11 from '../../../assets/images/bottle.jfif';
+import prod12 from '../../../assets/images/antique-jhumka.jpg';
+import prod13 from '../../../assets/images/kundan-necklace.jpg';
+import prod14 from '../../../assets/images/rajasthani-painting.jpg';
+import prod15 from '../../../assets/images/lord-ganesha.jpg';
+import prod16 from '../../../assets/images/copper-lota.jpg';
+import prod17 from '../../../assets/images/kumkum-box.jpg';
+import prod18 from '../../../assets/images/brass-diya.jpg';
+import prod19 from '../../../assets/images/glass-set.jpg';
+import prod20 from '../../../assets/images/serving-bowl.jpg';
 
 export const productData = [
   {
@@ -18,7 +27,8 @@ export const productData = [
     price: 1200,
     rating: 4.4,
     image: prod1,
-    description: "Vintage-style antique clock with intricate detailing and rustic finish."
+    description: "Vintage-style antique clock with intricate detailing and rustic finish.",
+    category: "Home Decor"
   },
   {
     id: 2,
@@ -27,7 +37,8 @@ export const productData = [
     price: 850,
     rating: 4.6,
     image: prod2,
-    description: "Traditional handcrafted necklace with antique gold finish and ethnic charm."
+    description: "Traditional handcrafted necklace with antique gold finish and ethnic charm.",
+    category: "Jewelry"
   },
   {
     id: 3,
@@ -36,7 +47,8 @@ export const productData = [
     price: 2300,
     rating: 4.3,
     image: prod3,
-    description: "Classic antique décor piece made with fine detailing, ideal for gifting or display."
+    description: "Classic antique décor piece made with fine detailing, ideal for gifting or display.",
+    category: "Art & Collectibles"
   },
   {
     id: 4,
@@ -45,7 +57,8 @@ export const productData = [
     price: 655,
     rating: 4.2,
     image: prod4,
-    description: "Handcrafted mirror with ethnic wooden frame for elegant home decor."
+    description: "Handcrafted mirror with ethnic wooden frame for elegant home decor.",
+    category: "Home Decor"
   },
   {
     id: 5,
@@ -54,7 +67,8 @@ export const productData = [
     price: 2300,
     rating: 4.7,
     image: prod5,
-    description: "Beautifully designed clay pot handcrafted by skilled Indian artisans."
+    description: "Beautifully designed clay pot handcrafted by skilled Indian artisans.",
+    category: "Art & Collectibles"
   },
   {
     id: 6,
@@ -63,7 +77,8 @@ export const productData = [
     price: 999,
     rating: 4.5,
     image: prod6,
-    description: "Durable wooden serving tray with traditional carvings and polished finish."
+    description: "Durable wooden serving tray with traditional carvings and polished finish.",
+    category: "Home Decor"
   },
   {
     id: 7,
@@ -72,7 +87,8 @@ export const productData = [
     price: 349,
     rating: 4.1,
     image: prod7,
-    description: "Eco-friendly jute basket perfect for indoor plants and rustic home styling."
+    description: "Eco-friendly jute basket perfect for indoor plants and rustic home styling.",
+    category: "Home Decor"
   },
   {
     id: 8,
@@ -81,7 +97,8 @@ export const productData = [
     price: 599,
     rating: 4.4,
     image: prod8,
-    description: "Hand block printed cushion cover with vibrant Rajasthani patterns."
+    description: "Hand block printed cushion cover with vibrant Rajasthani patterns.",
+    category: "Home Decor"
   },
   {
     id: 9,
@@ -90,7 +107,8 @@ export const productData = [
     price: 899,
     rating: 4.6,
     image: prod9,
-    description: "Elegant brass pooja thali set including diya, bell, and incense holder."
+    description: "Elegant brass pooja thali set including diya, bell, and incense holder.",
+    category: "Pooja Essentials"
   },
   {
     id: 10,
@@ -99,7 +117,8 @@ export const productData = [
     price: 1599,
     rating: 4.5,
     image: prod10,
-    description: "Handcrafted bamboo table lamp with soft warm lighting and natural charm."
+    description: "Handcrafted bamboo table lamp with soft warm lighting and natural charm.",
+    category: "Home Decor"
   },
   {
     id: 11,
@@ -108,6 +127,98 @@ export const productData = [
     price: 499,
     rating: 4.3,
     image: prod11,
-    description: "Natural terracotta bottle that keeps water cool and adds a traditional touch."
+    description: "Natural terracotta bottle that keeps water cool and adds a traditional touch.",
+    category: "Kitchenware"
+  },
+
+  {
+    id: 12,
+    name: "Traditional Jhumka",
+    mrp: 499,
+    price: 399,
+    rating: 4.5,
+    image: prod12,
+    description: "Traditional golden jhumkas perfect for ethnic wear.",
+    category: "Jewelry"
+  },
+  {
+    id: 13,
+    name: "Kundan Necklace Set",
+    mrp: 1800,
+    price: 1450,
+    rating: 4.7,
+    image: prod13,
+    description: "Elegant kundan choker set with matching earrings for festive occasions.",
+    category: "Jewelry"
+  },
+  {
+    id: 14,
+    name: "Miniature Rajasthani Painting",
+    mrp: 900,
+    price: 720,
+    rating: 4.6,
+    image: prod14,
+    description: "Hand-painted Rajasthani artwork on handmade paper with intricate detailing.",
+    category: "Art & Collectibles"
+  },
+  {
+    id: 15,
+    name: "Terracotta Lord Ganesha Idol",
+    mrp: 1500,
+    price: 1199,
+    rating: 4.8,
+    image: prod15,
+    description: "Blessed handcrafted idol for your pooja room or festive decor.",
+    category: "Pooja Essentials"
+  },
+  {
+    id: 16,
+    name: "Copper Lota",
+    mrp: 550,
+    price: 449,
+    rating: 4.4,
+    image: prod16,
+    description: "Pure copper lota ideal for daily rituals and water storage.",
+    category: "Pooja Essentials"
+  },
+  {
+    id: 17,
+    name: "Haldi Kumkum Box",
+    mrp: 350,
+    price: 270,
+    rating: 4.3,
+    image: prod17,
+    description: "Decorative haldi kumkum box with meenakari work, perfect for gifting.",
+    category: "Pooja Essentials"
+  },
+  {
+    id: 18,
+    name: "Brass Diya with Handle",
+    mrp: 299,
+    price: 229,
+    rating: 4.5,
+    image: prod18,
+    description: "Classic brass diya with sturdy handle for daily worship.",
+    category: "Pooja Essentials"
+  },
+  {
+    id: 19,
+    name: "Terracotta Drinking Glass Set",
+    mrp: 600,
+    price: 480,
+    rating: 4.4,
+    image: prod19,
+    description: "Set of 4 eco-friendly terracotta glasses for healthy drinking.",
+    category: "Kitchenware"
+  },
+  {
+    id: 20,
+    name: "Copper Serving Bowl",
+    mrp: 950,
+    price: 780,
+    rating: 4.5,
+    image: prod20,
+    description: "Handcrafted copper bowl with tin lining for safe and traditional cooking.",
+    category: "Kitchenware"
   }
 ];

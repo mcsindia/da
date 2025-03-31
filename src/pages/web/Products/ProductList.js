@@ -17,7 +17,7 @@ export const ProductList = () => {
             <ProductSidebar/>
             <div className="product-list-section py-5">
                 <Container>
-                    <div className="product-headers text-center mb-5">
+                    <div className="product-headers">
                         <h2 className="section-heading">Explore Our Products</h2>
                         <p className="section-subheading">
                             Discover unique, handcrafted, and traditional products.
@@ -29,7 +29,7 @@ export const ProductList = () => {
 
                             return (
                                 <Col md={4} sm={6} xs={12} className="mb-4" key={product.id}>
-                                    <Card className="product-card h-100">
+                                    <Card className="product-card ">
                                         <Card.Img variant="top" src={product.image} className="product-img" />
                                         <Card.Body>
                                             <Card.Title>{product.name}</Card.Title>

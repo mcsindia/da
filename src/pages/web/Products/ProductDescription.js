@@ -1,22 +1,33 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { Container, Row, Col, Button, Carousel, Card } from 'react-bootstrap';
+import { Container, Row, Col, Button, Carousel, Card, Modal } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { productData } from './ProductData';
 import { Header } from '../../../components/web/Header/Header';
 import { Footer } from '../../../components/web/Footer/Footer';
+import { WishlistContext } from '../../../context/WishListContext';
 
 export const ProductDescription = () => {
     const { id } = useParams();
     const product = productData.find(p => p.id === parseInt(id));
+    const { addToWishlist } = useContext(WishlistContext);
+
+    // State for Modal Visibility
+    const [showModal, setShowModal] = useState(false);
+
+    // Function to handle adding to wishlist and showing modal
+    const handleAddToWishlist = (item) => {
+        addToWishlist(item);
+        setShowModal(true);
+    };
 
     return (
         <>
             <Header />
             <Container className="product-discription-section py-5">
                 {product ? (
-                <Row className="flex-column flex-md-row align-items-start">
-                {/* Media Section */}
+                    <Row className="flex-column flex-md-row align-items-start">
+                        {/* Media Section */}
                         <Col md={6} className="sticky-container">
                             <div className="media-wrapper">
                                 <Carousel>
@@ -38,7 +49,9 @@ export const ProductDescription = () => {
                                 </Carousel>
                                 <div className="d-flex gap-3 mt-3">
                                     <Button className="cart-btn">Add to Cart</Button>
-                                    <Button className="wishlist-btn">♡ Add to Wishlist</Button>
+                                    <Button className="wishlist-btn" onClick={() => handleAddToWishlist(product)}>
+                                        ♡ Add to Wishlist
+                                    </Button>
                                 </div>
                             </div>
                         </Col>
@@ -180,6 +193,16 @@ export const ProductDescription = () => {
                     </Row>
                 </div>
             )}
+
+             {/* Wishlist Added Modal */}
+             <Modal show={showModal} onHide={() => setShowModal(false)} centered>
+                <Modal.Body className="text-center">
+                    <h5 className="fw-bold">Item Added to Wishlist! ❤️</h5>
+                    <p>{product?.name} has been added to your wishlist.</p>
+                 {/*    <Button variant="primary" as={Link} to="/wishlist" onClick={() => setShowModal(false)}>Go to Wishlist</Button>
+                    <Button variant="secondary" className="ms-2" onClick={() => setShowModal(false)}>Close</Button>
+               */}  </Modal.Body>
+            </Modal>
             <Footer />
         </>
     );

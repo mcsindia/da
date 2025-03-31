@@ -1,6 +1,7 @@
 import React from 'react';
+import {Link} from 'react-router-dom'
 import { Navbar, Container, Nav, NavDropdown } from 'react-bootstrap';
-import { FaHeart, FaShoppingCart, FaUser } from 'react-icons/fa'; // Icons
+import { FaHeart, FaShoppingCart, FaUser } from 'react-icons/fa'; 
 
 export const Header = () => {
   return (
@@ -14,12 +15,12 @@ export const Header = () => {
           <Nav className="ms-auto">
             <Nav.Link className='home-link' href="/web">Home</Nav.Link>
             <Nav.Link className='product-link' href="/products">Products</Nav.Link>
-
             <NavDropdown title="Categories" id="basic-nav-dropdown" className='catagory-link'>
-              <NavDropdown.Item href="/category/jewelry">Jewelry</NavDropdown.Item>
-              <NavDropdown.Item href="/category/home-decor">Home Decor</NavDropdown.Item>
-              <NavDropdown.Item href="/category/clothing">Clothing</NavDropdown.Item>
-              <NavDropdown.Item href="/category/art">Art & Collectibles</NavDropdown.Item>
+              <NavDropdown.Item as={Link} to="/category/Jewelry">Jewelry</NavDropdown.Item>
+              <NavDropdown.Item as={Link} to="/category/Home Decor">Home Decor</NavDropdown.Item>
+              <NavDropdown.Item as={Link} to="/category/Art & Collectibles">Art & Collectibles</NavDropdown.Item>
+              <NavDropdown.Item as={Link} to="/category/Pooja Essentials">Pooja Essentials</NavDropdown.Item>
+              <NavDropdown.Item as={Link} to="/category/Kitchenware">Kitchenware</NavDropdown.Item>
             </NavDropdown>
             <Nav.Link className='wish-link' href="/wishlist">
               <span className="icon"><FaHeart /></span> Wishlist

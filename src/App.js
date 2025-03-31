@@ -36,6 +36,10 @@ import { PressReleaseEdit } from './pages/dms/Media/PressRelease/PressReleaseEdi
 import { Home } from './pages/web/Home/Home';
 import { ProductList } from './pages/web/Products/ProductList';
 import { ProductDescription } from './pages/web/Products/ProductDescription';
+import { Catagory } from './pages/web/CatagoryPage/Catagory';
+import { Wishlist } from './pages/web/Wishlist/Wishlist';
+import { About } from './pages/web/About/About';
+import { Contact } from './pages/web/Contact/Contact';
 /* import { UserProfile } from './pages/User Management/Users/UserProfile'; */
 /* Master Management */
 
@@ -90,9 +94,14 @@ function App() {
         <Route path='/web' element={<Home/>} />
         <Route path='/products' element={<ProductList/>} />
         <Route path="/product/:id" element={<ProductDescription />} />
+        <Route path="/category/:categoryName" element={<Catagory/>} />
+        <Route path='/wishlist' element={<Wishlist/>} />
+        <Route path='/about' element={<About/>} />
+        <Route path='/contact' element={<Contact/>} />
       </Routes>
     </BrowserRouter>
   );
 }
 
 export default App;
+  

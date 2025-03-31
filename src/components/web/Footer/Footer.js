@@ -23,9 +23,9 @@ export const Footer = () => {
             <h6>Categories</h6>
             <ul className="footer-links">
               <li><a href="/category/jewelry">Jewelry</a></li>
-              <li><a href="/category/home-decor">Home Decor</a></li>
-              <li><a href="/category/clothing">Clothing</a></li>
-              <li><a href="/category/art">Art & Collectibles</a></li>
+              <li><a href="/category/Home Decor">Home Decor</a></li>
+              <li><a href="/category/Pooja Essentials">Pooja Essentials</a></li>
+              <li><a href="/category/Art & Collectibles">Art & Collectibles</a></li>
             </ul>
           </Col>
           <Col md={3}>
