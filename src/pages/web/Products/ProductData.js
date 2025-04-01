@@ -18,6 +18,12 @@ import prod17 from '../../../assets/images/kumkum-box.jpg';
 import prod18 from '../../../assets/images/brass-diya.jpg';
 import prod19 from '../../../assets/images/glass-set.jpg';
 import prod20 from '../../../assets/images/serving-bowl.jpg';
+import prod21 from '../../../assets/images/cotton-kurta.jpg';
+import prod22 from '../../../assets/images/banarsi-saree.jpg';
+import prod23 from '../../../assets/images/kids-lehnga.jfif';
+import prod24 from '../../../assets/images/sherwani-set.jpg';
+import prod25 from '../../../assets/images/anarkali-suit.jpg';
+import prod26 from '../../../assets/images/kids-kurta.jfif';
 
 export const productData = [
   {
@@ -220,5 +226,65 @@ export const productData = [
     image: prod20,
     description: "Handcrafted copper bowl with tin lining for safe and traditional cooking.",
     category: "Kitchenware"
+  },
+  {
+    id: 21,
+    name: "Men's Cotton Kurta",
+    mrp: 1800,
+    price: 1450,
+    rating: 4.5,
+    image: prod21,
+    description: "Handwoven cotton kurta, perfect for festive and casual wear.",
+    category: "Clothing"
+  },
+  {
+    id: 22,
+    name: "Women's Banarasi Silk Saree",
+    mrp: 4500,
+    price: 3999,
+    rating: 4.8,
+    image: prod22,
+    description: "Luxurious Banarasi silk saree with intricate zari work.",
+    category: "Clothing"
+  },
+  {
+    id: 23,
+    name: "Kids' Lehenga Choli",
+    mrp: 2500,
+    price: 1999,
+    rating: 4.6,
+    image: prod23,
+    description: "Vibrant lehenga choli set for little girls, perfect for festivals and weddings.",
+    category: "Clothing"
+  },
+  {
+    id: 24,
+    name: "Men's Sherwani Set",
+    mrp: 9500,
+    price: 8499,
+    rating: 4.9,
+    image: prod24,
+    description: "Regal sherwani with hand embroidery, ideal for weddings and special occasions.",
+    category: "Clothing"
+  },
+  {
+    id: 25,
+    name: "Women's Anarkali Suit",
+    mrp: 3200,
+    price: 2799,
+    rating: 4.7,
+    image: prod25,
+    description: "Elegant floor-length Anarkali with intricate handwork.",
+    category: "Clothing"
+  },
+  {
+    id: 26,
+    name: "Kids' Dhoti Kurta Set",
+    mrp: 1700,
+    price: 1399,
+    rating: 4.4,
+    image: prod26,
+    description: "Adorable dhoti kurta set for little boys, inspired by traditional Indian wear.",
+    category: "Clothing"
   }
 ];

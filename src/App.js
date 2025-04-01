@@ -40,6 +40,8 @@ import { Catagory } from './pages/web/CatagoryPage/Catagory';
 import { Wishlist } from './pages/web/Wishlist/Wishlist';
 import { About } from './pages/web/About/About';
 import { Contact } from './pages/web/Contact/Contact';
+import { Cart } from './pages/web/Cart/Cart';
+import { MyProfile } from './pages/web/MyProfile/MyProfile';
 /* import { UserProfile } from './pages/User Management/Users/UserProfile'; */
 /* Master Management */
 
@@ -95,9 +97,11 @@ function App() {
         <Route path='/products' element={<ProductList/>} />
         <Route path="/product/:id" element={<ProductDescription />} />
         <Route path="/category/:categoryName" element={<Catagory/>} />
+        <Route path='/cart' element={<Cart/>} />
         <Route path='/wishlist' element={<Wishlist/>} />
         <Route path='/about' element={<About/>} />
         <Route path='/contact' element={<Contact/>} />
+        <Route path='/profile' element={<MyProfile/>} />
       </Routes>
     </BrowserRouter>
   );

@@ -6,19 +6,29 @@ import { productData } from './ProductData';
 import { Header } from '../../../components/web/Header/Header';
 import { Footer } from '../../../components/web/Footer/Footer';
 import { WishlistContext } from '../../../context/WishListContext';
+import { CartContext } from '../../../context/CartContext';
 
 export const ProductDescription = () => {
     const { id } = useParams();
     const product = productData.find(p => p.id === parseInt(id));
     const { addToWishlist } = useContext(WishlistContext);
+    const { addToCart } = useContext(CartContext);
 
-    // State for Modal Visibility
+    // State for Wishlist  Modal Visibility
     const [showModal, setShowModal] = useState(false);
+    // State for Cart Modal Visibility
+    const [showCartModal, setShowCartModal] = useState(false);
 
     // Function to handle adding to wishlist and showing modal
     const handleAddToWishlist = (item) => {
         addToWishlist(item);
         setShowModal(true);
+    };
+
+    // Function to handle adding to cart and showing modal
+    const handleAddToCart = (item) => {
+        addToCart(item);
+        setShowCartModal(true); // Show modal when item is added to cart
     };
 
     return (
@@ -48,7 +58,9 @@ export const ProductDescription = () => {
                                     </Carousel.Item>
                                 </Carousel>
                                 <div className="d-flex gap-3 mt-3">
-                                    <Button className="cart-btn">Add to Cart</Button>
+                                    <Button className="cart-btn" onClick={() => handleAddToCart(product)}>
+                                        Add to Cart
+                                    </Button>
                                     <Button className="wishlist-btn" onClick={() => handleAddToWishlist(product)}>
                                         ♡ Add to Wishlist
                                     </Button>
@@ -194,15 +206,22 @@ export const ProductDescription = () => {
                 </div>
             )}
 
-             {/* Wishlist Added Modal */}
-             <Modal show={showModal} onHide={() => setShowModal(false)} centered>
+            {/* Wishlist Added Modal */}
+            <Modal show={showModal} onHide={() => setShowModal(false)} centered>
                 <Modal.Body className="text-center">
                     <h5 className="fw-bold">Item Added to Wishlist! ❤️</h5>
                     <p>{product?.name} has been added to your wishlist.</p>
-                 {/*    <Button variant="primary" as={Link} to="/wishlist" onClick={() => setShowModal(false)}>Go to Wishlist</Button>
-                    <Button variant="secondary" className="ms-2" onClick={() => setShowModal(false)}>Close</Button>
-               */}  </Modal.Body>
+                 </Modal.Body>
             </Modal>
+
+            {/* Cart Added Modal */}
+            <Modal show={showCartModal} onHide={() => setShowCartModal(false)} centered>
+                <Modal.Body className="text-center">
+                    <h5 className="fw-bold">Item Added to Cart! 🛒</h5>
+                    <p>{product?.name} has been added to your cart.</p>
+                </Modal.Body>
+            </Modal>
+
             <Footer />
         </>
     );
