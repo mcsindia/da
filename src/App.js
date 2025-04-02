@@ -11,28 +11,8 @@ import { ResetPassword } from './layouts/dms/AuthLayout/ResetPassword'
 import { UserAdd } from './pages/dms/Users/UserAdd';
 import { UserEdit } from './pages/dms/Users/UserEdit';
 import { UserList } from './pages/dms/Users/UserList';
-/* Master */
-import { CountryList } from './pages/dms/Master/Country/CountryList';
-import { CountryAdd } from './pages/dms/Master/Country/CountryAdd';
-import { CountryEdit } from './pages/dms/Master/Country/CountryEdit';
-import { CityList } from './pages/dms/Master/City/CityList';
-import { CityAdd } from './pages/dms/Master/City/CityAdd';
-import { CityEdit } from './pages/dms/Master/City/CityEdit';
-import { StateList } from './pages/dms/Master/State/StateList';
-import { StateAdd } from './pages/dms/Master/State/StateAdd';
-import { StateEdit } from './pages/dms/Master/State/StateEdit';
-/* Audit Logs */
-import { AuditLogs } from './pages/dms/AuditLogs/AuditLogs';
-/* Media */
-import { NewsList } from './pages/dms/Media/News/NewsList';
-import { NewsAdd } from './pages/dms/Media/News/NewsAdd';
-import { NewsEdit } from './pages/dms/Media/News/NewsEdit';
-import { EventsList } from './pages/dms/Media/Events/EventsList';
-import { EventAdd } from './pages/dms/Media/Events/EventAdd';
-import { EventEdit } from './pages/dms/Media/Events/EventEdit';
-import { PressReleases } from './pages/dms/Media/PressRelease/PressReleases';
-import { PressRealeaseAdd } from './pages/dms/Media/PressRelease/PressRealeaseAdd';
-import { PressReleaseEdit } from './pages/dms/Media/PressRelease/PressReleaseEdit';
+import { UserProfile } from './pages/dms/Users/UserProfile';
+/* Website */
 import { Home } from './pages/web/Home/Home';
 import { ProductList } from './pages/web/Products/ProductList';
 import { ProductDescription } from './pages/web/Products/ProductDescription';
@@ -43,8 +23,6 @@ import { Contact } from './pages/web/Contact/Contact';
 import { Cart } from './pages/web/Cart/Cart';
 import { MyProfile } from './pages/web/MyProfile/MyProfile';
 import { Order } from './pages/web/Order/Order';
-/* import { UserProfile } from './pages/User Management/Users/UserProfile'; */
-/* Master Management */
 
 function App() {
   return (
@@ -61,37 +39,8 @@ function App() {
         <Route path='/user' element={<UserList />} />
         <Route path='/user/add' element={<UserAdd />} />
         <Route path='/user/edit' element={<UserEdit />} />
-        {/* <Route path='/user/profile' element={<UserProfile />} /> */}
+         <Route path='/user/profile' element={< UserProfile/>} /> 
 
-        {/* Master Management */}
-        {/* Country */}
-        <Route path='/master/country' element={<CountryList/>} />
-        <Route path='//master/country/add' element={<CountryAdd/>} />
-        <Route path='/master/country/edit' element={<CountryEdit/>} />
-        {/* City */}
-        <Route path='/master/city' element={<CityList/>} />
-        <Route path='/master/city/add' element={<CityAdd/>} />
-        <Route path='/master/city/edit' element={<CityEdit/>} />
-        {/* State */}
-        <Route path='/master/state' element={<StateList/>} />
-        <Route path='/master/state/add' element={<StateAdd/>} />
-        <Route path='/master/state/edit' element={<StateEdit/>} />
-        {/* Media Management */}
-        {/* News */}
-        <Route path='/media/news' element={<NewsList/>} />
-        <Route path='/media/news/add' element={<NewsAdd/>} />
-        <Route path='/media/news/edit' element={<NewsEdit/>} />
-        {/* Event */}
-        <Route path='/media/events' element={<EventsList/>} />
-        <Route path='/media/events/add' element={<EventAdd/>} />
-        <Route path='/media/events/edit' element={<EventEdit/>} />
-        {/* Press Release */}
-        <Route path='/media/press-releases' element={<PressReleases/>} />
-        <Route path='/media/press-releases/add' element={<PressRealeaseAdd/>} />
-        <Route path='/media/press-releases/edit' element={<PressReleaseEdit/>} />
-
-        {/* Audit Logs */}
-        <Route path='/audit-logs' element={<AuditLogs/>} />
 
         {/* Website */}
         <Route path='/web' element={<Home/>} />

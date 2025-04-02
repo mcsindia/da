@@ -697,46 +697,37 @@ display: block;
   }
   /* Admin Layout Css */
 
-/* Dashboard cards */
-.dashboard-container {
-padding: 20px;
-background-color: var(--light-gray);
+/* Dashboard.css */
+/* Cards */
+.dashboard-card {
+  margin-bottom: 16px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  border: none;
+  border-radius: 10px;
+  text-align: center;
+  padding: 20px;
 }
 
-.card {
-height: 100px;
-/* Fixed height */
-width: 100%;
-border: none;
-border-radius: 20px;
-background-color: var(--white);
-box-shadow: none;
-transition: transform 0.2s ease-in-out;
+.dashboard-card h3 {
+  font-size: 1.8rem;
+  margin: 10px 0;
 }
 
-.card-body-custom p {
-margin-bottom: 0.25rem;
-/* Adjust this value as needed */
+.dashboard-card p {
+  font-size: 0.9rem;
 }
 
-.card:hover {
-transform: translateY(-5px);
+/* Revenue Overview */
+.revenue-card, .sales-card {
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  border: none;
 }
 
-.stat-icon {
-font-size: 1rem;
-color: var(--primary-blue);
-}
-
-.stat-title {
-font-size: 1rem;
-color: var(--text-gray);
-}
-
-.stat-value {
-font-size: 1rem;
-font-weight: bold;
-color: var(--dark-gray);
+.revenue-card h6, .sales-card h6 {
+  font-size: 1.1rem;
+  margin-bottom: 15px;
 }
 /* Dashboard Cards */
 
