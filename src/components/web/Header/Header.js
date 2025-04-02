@@ -8,7 +8,7 @@ export const Header = () => {
     <Navbar expand="lg" className="ecom-navbar" variant="dark" fixed='top'>
       <Container>
         <Navbar.Brand href="/web" className="brand-text">
-          🛙️ E-commerce
+        🛍️ E-commerce
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="ecom-navbar-nav" />
         <Navbar.Collapse id="ecom-navbar-nav">

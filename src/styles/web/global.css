@@ -600,7 +600,6 @@ body {
     border-right: 2px solid #E0C9A6;
     margin-top: 60px;
     color: #3E2C1C;
-    font-family: 'Segoe UI', sans-serif;
   }
   
   /* Headings */
@@ -1114,3 +1113,114 @@ body {
     margin-top: 40px;
     box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.2);
 }
+
+.profile-form{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.profile-form-label{
+    margin-top: 11px;
+    font-weight: bold;
+}
+
+.profile-input{
+    margin-top: 10px;
+}
+
+/* Order Sidebar */
+
+.order-sidebar {
+    width: 250px;
+    min-height: 100vh;
+    padding: 20px;
+    border-right: 2px solid #E0C9A6;
+    margin-top: 60px;
+    color: #3E2C1C;
+}
+
+.order-sidebar-heading{
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+@media (max-width: 768px) {
+    .order-sidebar{
+        display: none;
+    }
+}
+
+/* Orders Css */
+.orders-page {
+    display: flex;
+    gap: 20px; /* Add some space between sidebar and content */
+    padding: 20px;
+}
+
+.orders-container {
+    max-width: 900px;
+    margin-top: 40px;
+    padding: 3rem 1rem;
+    flex-grow: 1; /* Take remaining space */
+    background: #fff;
+    border-radius: 8px;
+  }
+  
+  .filters {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+  }
+  
+  select {
+    padding: 5px;
+  }
+  
+  .orders-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .order-card {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #fff;
+  }
+  
+  .order-card img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-right: 15px;
+  }
+  
+  .order-details h3 {
+    margin: 5px 0;
+  }
+  
+  .status-delivered {
+    color: green;
+    font-weight: bold;
+  }
+  
+  .status-on-the-way {
+    color: orange;
+    font-weight: bold;
+  }
+  
+  .status-cancelled {
+    color: red;
+    font-weight: bold;
+  }
+  
+  .status-returned {
+    color: purple;
+    font-weight: bold;
+  }
+  

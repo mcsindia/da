@@ -1,21 +1,18 @@
 import React, { useState } from 'react';
-import { Container, Form, Button, Accordion } from 'react-bootstrap';
+import { Container, Form, Button, Accordion, Row, Col } from 'react-bootstrap';
 import { Header } from '../../../components/web/Header/Header';
 import { Footer } from '../../../components/web/Footer/Footer';
 
 export const MyProfile = () => {
-  const [fullName, setFullName] = useState('Anjali Sharma');
-  const [gender, setGender] = useState('Female');
-  const [email, setEmail] = useState('anjali@example.com');
-  const [mobile, setMobile] = useState('1234567890');
-  const [editField, setEditField] = useState(null);
+  const [editFields, setEditFields] = useState({
+    fullName: false,
+    gender: false,
+    email: false,
+    phone: false,
+  });
 
-  const handleEditClick = (field) => {
-    setEditField(field);
-  };
-
-  const handleSaveClick = () => {
-    setEditField(null); // Save hone ke baad fields phir se read-only ho jayengi
+  const toggleEditField = (field) => {
+    setEditFields((prev) => ({ ...prev, [field]: !prev[field] }));
   };
 
   return (
@@ -23,84 +20,56 @@ export const MyProfile = () => {
       <Header />
       <Container className="profile-container">
         <Form>
-            <h4>Personal Information</h4>
-          <Form.Group className="mb-3">
-            <div className="d-flex justify-content-between align-items-center">
-              <Form.Label>Full Name</Form.Label>
-              {editField === 'fullName' ? (
-                <Button variant="link" onClick={handleSaveClick}>Save</Button>
-              ) : (
-                <Button variant="link" onClick={() => handleEditClick('fullName')}>Edit</Button>
-              )}
-            </div>
-            <Form.Control 
-              type="text" 
-              value={fullName} 
-              onChange={(e) => setFullName(e.target.value)} 
-              readOnly={editField !== 'fullName'} 
-            />
-          </Form.Group>
-          
-          <Form.Group className="mb-3">
-            <div className="d-flex justify-content-between align-items-center">
-              <Form.Label>Your Gender</Form.Label>
-              {editField === 'gender' ? (
-                <Button variant="link" onClick={handleSaveClick}>Save</Button>
-              ) : (
-                <Button variant="link" onClick={() => handleEditClick('gender')}>Edit</Button>
-              )}
-            </div>
-            <div>
-              <Form.Check 
-                inline label="Male" type="radio" name="gender" 
-                value="Male" checked={gender === 'Male'} 
-                onChange={(e) => setGender(e.target.value)} 
-                disabled={editField !== 'gender'} 
-              />
-              <Form.Check 
-                inline label="Female" type="radio" name="gender" 
-                value="Female" checked={gender === 'Female'} 
-                onChange={(e) => setGender(e.target.value)} 
-                disabled={editField !== 'gender'} 
-              />
-            </div>
-          </Form.Group>
-          
-          <Form.Group className="mb-3">
-            <div className="d-flex justify-content-between align-items-center">
-              <Form.Label>Email Address</Form.Label>
-              {editField === 'email' ? (
-                <Button variant="link" onClick={handleSaveClick}>Save</Button>
-              ) : (
-                <Button variant="link" onClick={() => handleEditClick('email')}>Edit</Button>
-              )}
-            </div>
-            <Form.Control 
-              type="email" 
-              value={email} 
-              onChange={(e) => setEmail(e.target.value)} 
-              readOnly={editField !== 'email'} 
-            />
-          </Form.Group>
-          
-          <Form.Group className="mb-3">
-            <div className="d-flex justify-content-between align-items-center">
-              <Form.Label>Mobile Number</Form.Label>
-              {editField === 'mobile' ? (
-                <Button variant="link" onClick={handleSaveClick}>Save</Button>
-              ) : (
-                <Button variant="link" onClick={() => handleEditClick('mobile')}>Edit</Button>
-              )}
-            </div>
-            <Form.Control 
-              type="text" 
-              value={mobile} 
-              onChange={(e) => setMobile(e.target.value)} 
-              readOnly={editField !== 'mobile'} 
-            />
-          </Form.Group>
+          <h3 className="mb-3">Personal Information</h3>
+          <Row className="mb-3">
+            <Col md={12}>
+            <div className="profile-form">
+              <Form.Label className='profile-form-label'>Full Name*</Form.Label>
+              <Button variant="link" onClick={() => toggleEditField('fullName')}>
+                  {editFields.fullName ? "Save" : "Edit"}
+                </Button>
+              </div>
+                <Form.Control type="text" placeholder="Enter Full Name" disabled={!editFields.fullName} className="profile-input" />
+            </Col>
+          </Row>
+          <Row className="mb-3">
+            <Col md={12}>
+              <div className="profile-form">
+              <Form.Label className='profile-form-label'>Gender</Form.Label>
+                <Button variant="link" onClick={() => toggleEditField('gender')}>
+                  {editFields.gender ? "Save" : "Edit"}
+                </Button>
+              </div>
+                <div className="d-flex gap-3">
+                  <Form.Check type="radio" label="Male" name="gender" disabled={!editFields.gender} />
+                  <Form.Check type="radio" label="Female" name="gender" disabled={!editFields.gender} />
+                </div>
+            </Col>
+          </Row>
+          <Row className="mb-3">
+            <Col md={12}>
+            <div className="profile-form">
+              <Form.Label className='profile-form-label'>Email*</Form.Label>
+              <Button variant="link" onClick={() => toggleEditField('email')}>
+                  {editFields.email ? "Save" : "Edit"}
+                </Button>
+                </div>
+                <Form.Control type="email" placeholder="Enter Email" disabled={!editFields.email} className="profile-input" />
+            </Col>
+          </Row>
+          <Row className="mb-3">
+            <Col md={12}>
+            <div className="profile-form">
+              <Form.Label className='profile-form-label'>Phone Number*</Form.Label>
+              <Button variant="link" onClick={() => toggleEditField('phone')}>
+                  {editFields.phone ? "Save" : "Edit"}
+                </Button>
+                </div>
+                <Form.Control type="text" placeholder="Enter Phone Number" disabled={!editFields.phone} className="profile-input" />
+            </Col>
+          </Row>
         </Form>
-        
+
         <h3 className="mt-4">FAQs</h3>
         <Accordion>
           <Accordion.Item eventKey="0">
@@ -128,7 +97,7 @@ export const MyProfile = () => {
             </Accordion.Body>
           </Accordion.Item>
         </Accordion>
-        
+
         <Button variant="danger" className="mt-3">Deactivate Account</Button>
         <Button variant="outline-danger" className="mt-3 ms-2">Delete Account</Button>
       </Container>

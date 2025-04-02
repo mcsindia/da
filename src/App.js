@@ -42,6 +42,7 @@ import { About } from './pages/web/About/About';
 import { Contact } from './pages/web/Contact/Contact';
 import { Cart } from './pages/web/Cart/Cart';
 import { MyProfile } from './pages/web/MyProfile/MyProfile';
+import { Order } from './pages/web/Order/Order';
 /* import { UserProfile } from './pages/User Management/Users/UserProfile'; */
 /* Master Management */
 
@@ -99,6 +100,7 @@ function App() {
         <Route path="/category/:categoryName" element={<Catagory/>} />
         <Route path='/cart' element={<Cart/>} />
         <Route path='/wishlist' element={<Wishlist/>} />
+        <Route path='/orders' element={<Order/>} />
         <Route path='/about' element={<About/>} />
         <Route path='/contact' element={<Contact/>} />
         <Route path='/profile' element={<MyProfile/>} />
