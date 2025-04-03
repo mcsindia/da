@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import {
     FaChartLine,
     FaUsers,
-    FaCogs, 
+    FaCogs,
     FaMotorcycle,
     FaCaretDown, FaCaretRight,
     FaCreditCard,
@@ -10,7 +10,7 @@ import {
     FaRegEnvelope,
     FaRegStar,
     FaBox,
-    FaProductHunt
+    FaProductHunt, FaCrown
 } from "react-icons/fa";
 
 export const Sidebar = ({ isOpen }) => {
@@ -67,8 +67,91 @@ export const Sidebar = ({ isOpen }) => {
                         <FaChartLine className="me-2" />
                         <span className={isOpen ? "" : "d-none d-md-none d-sm-block"}>Dashboard</span>
                     </a>
-                </li> 
-               
+                </li>
+
+                {/* Company */}
+                <li className="dms-nav-item">
+                    <div
+                        className={`dms-nav-link text-white ${openMenu === "company" ? "active" : ""}`}
+                        onClick={() => handleMenuToggle("company")}
+                    >
+                        <div className="d-flex align-items-center">
+                            <FaCrown className="me-2" />
+                            <span className={isOpen ? "" : "d-none d-md-none d-sm-block"}>Company</span>
+                        </div>
+                        <FaCaretDown
+                            className={`ms-auto ${openMenu === "user" ? "rotate" : ""} ${isOpen ? "hide-caret" : ""
+                                }`}
+                            style={{ transition: "transform 0.3s", display: isOpen ? "inline-block" : "none" }}
+                        />
+                    </div>
+                    {openMenu === "company" && (
+                        <ul className="submenu show">
+                            <li className="dms-nav-item">
+                                <div className="d-flex align-items-center">
+                                    <FaCaretRight />
+                                    <div
+                                        className="dms-nav-link text-white"
+                                        onClick={() => handleSubMenuToggle("company")}
+                                    >
+                                        Employee & Staff Management
+                                    </div>
+                                </div>
+                                {openSubMenu === "company" && (
+                                    <ul className="submenu show">
+                                        <div >
+                                            <li className="dms-nav-item">
+                                                <div className="d-flex align-items-center">
+                                                    <FaCaretRight />
+                                                    <a href="/employee" className="dms-nav-link text-white">
+                                                        All Employees
+                                                    </a>
+                                                </div>
+                                            </li>
+                                            <li className="dms-nav-item">
+                                                <div className="d-flex align-items-center">
+                                                    <FaCaretRight />
+                                                    <a href="/department" className="dms-nav-link text-white">Department</a>
+                                                </div>
+                                            </li>
+                                            <li className="dms-nav-item">
+                                                <div className="d-flex align-items-center">
+                                                    <FaCaretRight />
+                                                    <a href="/designation" className="dms-nav-link text-white">Designation</a>
+                                                </div>
+                                            </li>
+                                            <li className="dms-nav-item">
+                                                <div className="d-flex align-items-center">
+                                                    <FaCaretRight />
+                                                    <a href="/employee-roles" className="dms-nav-link text-white">
+                                                        Role
+                                                    </a>
+                                                </div>
+                                            </li>
+                                            <li className="dms-nav-item">
+                                                <div className="d-flex align-items-center">
+                                                    <FaCaretRight />
+                                                    <a href="/role-permission" className="dms-nav-link text-white">
+                                                        Roles-Permission
+                                                    </a>
+                                                </div>
+                                            </li>
+                                            <li className="dms-nav-item">
+                                                <div className="d-flex align-items-center">
+                                                    <FaCaretRight />
+                                                    <a href="/activity-logs" className="dms-nav-link text-white">
+                                                        Activity Logs
+                                                    </a>
+                                                </div>
+                                            </li>
+                                        </div>
+                                    </ul>
+                                )}
+                            </li>
+                        </ul>
+                    )}
+                </li>
+
                 {/* User Management */}
                 <li className="dms-nav-item">
                     <div
@@ -102,7 +185,7 @@ export const Sidebar = ({ isOpen }) => {
                 <li className="dms-nav-item">
                     <div
                         className={`dms-nav-link text-white ${openMenu === "product" ? "active" : ""}`}
-                        onClick={() => handleMenuToggle("product")}     
+                        onClick={() => handleMenuToggle("product")}
                     >
                         <div className="d-flex align-items-center">
                             <FaProductHunt className="me-2" />
@@ -127,8 +210,8 @@ export const Sidebar = ({ isOpen }) => {
                             <li className="dms-nav-item">
                                 <div className="d-flex align-items-center">
                                     <FaCaretRight />
-                                    <a href="/dms/manage-catagory" className="dms-nav-link text-white">
-                                        Manage Catagory
+                                    <a href="/dms/manage-category" className="dms-nav-link text-white">
+                                        Manage Category
                                     </a>
                                 </div>
                             </li>
@@ -144,11 +227,11 @@ export const Sidebar = ({ isOpen }) => {
                     )}
                 </li>
 
-               {/* Order Management */}
-               <li className="dms-nav-item">
+                {/* Order Management */}
+                <li className="dms-nav-item">
                     <div
                         className={`dms-nav-link text-white ${openMenu === "order" ? "active" : ""}`}
-                        onClick={() => handleMenuToggle("order")}     
+                        onClick={() => handleMenuToggle("order")}
                     >
                         <div className="d-flex align-items-center">
                             <FaBox className="me-2" />
@@ -197,211 +280,219 @@ export const Sidebar = ({ isOpen }) => {
                         </ul>
                     )}
 
-                               {/* Reviews and Feedback */}
-                               <li className="dms-nav-item">
-                    <div
-                        className={`dms-nav-link text-white ${openMenu === "review" ? "active" : ""}`}
-                        onClick={() => handleMenuToggle("review")}     
-                    >
-                        <div className="d-flex align-items-center">
-                            <FaRegStar className="me-2" />
-                            <span className={isOpen ? "" : "d-none d-md-none d-sm-block"}>Reviews & Feedback</span>
+                    {/* Reviews and Feedback */}
+                    <li className="dms-nav-item">
+                        <div
+                            className={`dms-nav-link text-white ${openMenu === "reviews" ? "active" : ""}`}
+                            onClick={() => handleMenuToggle("reviews")}
+                        >
+                            <div className="d-flex align-items-center">
+                                <FaRegStar className="me-2" />
+                                <span className={isOpen ? "" : "d-none d-md-none d-sm-block"}>Reviews & Feedback</span>
+                            </div>
+                            <FaCaretDown
+                                className={`ms-auto ${openMenu === "reviews" ? "rotate" : ""} ${isOpen ? "hide-caret" : ""
+                                    }`}
+                                style={{ transition: "transform 0.3s", display: isOpen ? "inline-block" : "none" }}
+                            />
                         </div>
-                        <FaCaretDown
-                            className={`ms-auto ${openMenu === "reviews" ? "rotate" : ""} ${isOpen ? "hide-caret" : ""
-                                }`}
-                            style={{ transition: "transform 0.3s", display: isOpen ? "inline-block" : "none" }}
-                        />
-                    </div>
-                    {openMenu === "reviews" && (
-                        <ul className="submenu show">
-                            <li className="dms-nav-item">
-                                <div className="d-flex align-items-center">
-                                    <FaCaretRight />
-                                    <a href="/dms/product-review" className="dms-nav-link text-white">
-                                       Product Reviews
-                                    </a>
-                                </div>
-                            </li>
-                            <li className="dms-nav-item">
-                                <div className="d-flex align-items-center">
-                                    <FaCaretRight />
-                                    <a href="/dms/customer-feedback" className="dms-nav-link text-white">
-                                       Customer Feedback
-                                    </a>
-                                </div>
-                            </li>
-                        </ul>
-                    )}
-                </li>
+                        {openMenu === "reviews" && (
+                            <ul className="submenu show">
+                                <li className="dms-nav-item">
+                                    <div className="d-flex align-items-center">
+                                        <FaCaretRight />
+                                        <a href="/dms/product-review" className="dms-nav-link text-white">
+                                            Product Reviews
+                                        </a>
+                                    </div>
+                                </li>
+                                <li className="dms-nav-item">
+                                    <div className="d-flex align-items-center">
+                                        <FaCaretRight />
+                                        <a href="/dms/customer-feedback" className="dms-nav-link text-white">
+                                            Customer Feedback
+                                        </a>
+                                    </div>
+                                </li>
+                            </ul>
+                        )}
+                    </li>
 
-                {/* Coupons and Discounts */}
-                <li className="dms-nav-item">
-                    <div
-                        className={`dms-nav-link text-white ${openMenu === "coupons" ? "active" : ""}`}
-                        onClick={() => handleMenuToggle("coupons")}     
-                    >
-                        <div className="d-flex align-items-center">
-                            <FaRegEnvelope className="me-2" />
-                            <span className={isOpen ? "" : "d-none d-md-none d-sm-block"}>Coupons & Discounts</span>
+                    {/* Coupons and Discounts */}
+                    <li className="dms-nav-item">
+                        <div
+                            className={`dms-nav-link text-white ${openMenu === "coupons" ? "active" : ""}`}
+                            onClick={() => handleMenuToggle("coupons")}
+                        >
+                            <div className="d-flex align-items-center">
+                                <FaRegEnvelope className="me-2" />
+                                <span className={isOpen ? "" : "d-none d-md-none d-sm-block"}>Coupons & Discounts</span>
+                            </div>
+                            <FaCaretDown
+                                className={`ms-auto ${openMenu === "coupons" ? "rotate" : ""} ${isOpen ? "hide-caret" : ""
+                                    }`}
+                                style={{ transition: "transform 0.3s", display: isOpen ? "inline-block" : "none" }}
+                            />
                         </div>
-                        <FaCaretDown
-                            className={`ms-auto ${openMenu === "coupons" ? "rotate" : ""} ${isOpen ? "hide-caret" : ""
-                                }`}
-                            style={{ transition: "transform 0.3s", display: isOpen ? "inline-block" : "none" }}
-                        />
-                    </div>
-                    {openMenu === "coupons" && (
-                        <ul className="submenu show">
-                            <li className="dms-nav-item">
-                                <div className="d-flex align-items-center">
-                                    <FaCaretRight />
-                                    <a href="/dms/manage-coupons" className="dms-nav-link text-white">
-                                        Manage Coupons
-                                    </a>
-                                </div>
-                            </li>
-                            <li className="dms-nav-item">
-                                <div className="d-flex align-items-center">
-                                    <FaCaretRight />
-                                    <a href="/dms/discounts" className="dms-nav-link text-white">
-                                        Apply Discounts
-                                    </a>
-                                </div>
-                            </li>
-                        </ul>
-                    )}
-                </li>
+                        {openMenu === "coupons" && (
+                            <ul className="submenu show">
+                                <li className="dms-nav-item">
+                                    <div className="d-flex align-items-center">
+                                        <FaCaretRight />
+                                        <a href="/dms/manage-coupons" className="dms-nav-link text-white">
+                                            Manage Coupons
+                                        </a>
+                                    </div>
+                                </li>
+                                <li className="dms-nav-item">
+                                    <div className="d-flex align-items-center">
+                                        <FaCaretRight />
+                                        <a href="/dms/discounts" className="dms-nav-link text-white">
+                                            Apply Discounts
+                                        </a>
+                                    </div>
+                                </li>
+                            </ul>
+                        )}
+                    </li>
 
-                {/* Reports and Analysics */}
-                <li className="dms-nav-item">
-                    <div
-                        className={`dms-nav-link text-white ${openMenu === "reports" ? "active" : ""}`}
-                        onClick={() => handleMenuToggle("reports")}     
-                    >
-                        <div className="d-flex align-items-center">
-                            <FaChartBar className="me-2" />
-                            <span className={isOpen ? "" : "d-none d-md-none d-sm-block"}>Reports & Analysis</span>
+                    {/* Reports and Analysics */}
+                    <li className="dms-nav-item">
+                        <div
+                            className={`dms-nav-link text-white ${openMenu === "reports" ? "active" : ""}`}
+                            onClick={() => handleMenuToggle("reports")}
+                        >
+                            <div className="d-flex align-items-center">
+                                <FaChartBar className="me-2" />
+                                <span className={isOpen ? "" : "d-none d-md-none d-sm-block"}>Reports & Analysis</span>
+                            </div>
+                            <FaCaretDown
+                                className={`ms-auto ${openMenu === "reports" ? "rotate" : ""} ${isOpen ? "hide-caret" : ""
+                                    }`}
+                                style={{ transition: "transform 0.3s", display: isOpen ? "inline-block" : "none" }}
+                            />
                         </div>
-                        <FaCaretDown
-                            className={`ms-auto ${openMenu === "reports" ? "rotate" : ""} ${isOpen ? "hide-caret" : ""
-                                }`}
-                            style={{ transition: "transform 0.3s", display: isOpen ? "inline-block" : "none" }}
-                        />
-                    </div>
-                    {openMenu === "reports" && (
-                        <ul className="submenu show">
-                            <li className="dms-nav-item">
-                                <div className="d-flex align-items-center">
-                                    <FaCaretRight />
-                                    <a href="/dms/sales-report" className="dms-nav-link text-white">
-                                        Sales Reports
-                                    </a>
-                                </div>
-                            </li>
-                            <li className="dms-nav-item">
-                                <div className="d-flex align-items-center">
-                                    <FaCaretRight />
-                                    <a href="/dms/product-performance" className="dms-nav-link text-white">
-                                       Product Performance
-                                    </a>
-                                </div>
-                            </li>
-                            <li className="dms-nav-item">
-                                <div className="d-flex align-items-center">
-                                    <FaCaretRight />
-                                    <a href="/dms/customer-activity" className="dms-nav-link text-white">
-                                        Customer Activity
-                                    </a>
-                                </div>
-                            </li>
-                        </ul>
-                    )}
-                </li>
+                        {openMenu === "reports" && (
+                            <ul className="submenu show">
+                                <li className="dms-nav-item">
+                                    <div className="d-flex align-items-center">
+                                        <FaCaretRight />
+                                        <a href="/dms/sales-report" className="dms-nav-link text-white">
+                                            Sales Reports
+                                        </a>
+                                    </div>
+                                </li>
+                                <li className="dms-nav-item">
+                                    <div className="d-flex align-items-center">
+                                        <FaCaretRight />
+                                        <a href="/dms/product-performance" className="dms-nav-link text-white">
+                                            Product Performance
+                                        </a>
+                                    </div>
+                                </li>
+                                <li className="dms-nav-item">
+                                    <div className="d-flex align-items-center">
+                                        <FaCaretRight />
+                                        <a href="/dms/customer-activity" className="dms-nav-link text-white">
+                                            Customer Activity
+                                        </a>
+                                    </div>
+                                </li>
+                            </ul>
+                        )}
+                    </li>
 
-                {/* Payment and Transaction */}
-                <li className="dms-nav-item">
-                    <div
-                        className={`dms-nav-link text-white ${openMenu === "payment" ? "active" : ""}`}
-                        onClick={() => handleMenuToggle("payment")}     
-                    >
-                        <div className="d-flex align-items-center">
-                            <FaCreditCard className="me-2" />
-                            <span className={isOpen ? "" : "d-none d-md-none d-sm-block"}>Payment & Transaction</span>
+                    {/* Payment and Transaction */}
+                    <li className="dms-nav-item">
+                        <div
+                            className={`dms-nav-link text-white ${openMenu === "payment" ? "active" : ""}`}
+                            onClick={() => handleMenuToggle("payment")}
+                        >
+                            <div className="d-flex align-items-center">
+                                <FaCreditCard className="me-2" />
+                                <span className={isOpen ? "" : "d-none d-md-none d-sm-block"}>Payment & Transaction</span>
+                            </div>
+                            <FaCaretDown
+                                className={`ms-auto ${openMenu === "payment" ? "rotate" : ""} ${isOpen ? "hide-caret" : ""
+                                    }`}
+                                style={{ transition: "transform 0.3s", display: isOpen ? "inline-block" : "none" }}
+                            />
                         </div>
-                        <FaCaretDown
-                            className={`ms-auto ${openMenu === "payment" ? "rotate" : ""} ${isOpen ? "hide-caret" : ""
-                                }`}
-                            style={{ transition: "transform 0.3s", display: isOpen ? "inline-block" : "none" }}
-                        />
-                    </div>
-                    {openMenu === "payment" && (
-                        <ul className="submenu show">
-                            <li className="dms-nav-item">
-                                <div className="d-flex align-items-center">
-                                    <FaCaretRight />
-                                    <a href="/dms/payment-history" className="dms-nav-link text-white">
-                                        Payment History 
-                                    </a>
-                                </div>
-                            </li>
-                            <li className="dms-nav-item">
-                                <div className="d-flex align-items-center">
-                                    <FaCaretRight />
-                                    <a href="/dms/refunds" className="dms-nav-link text-white">
-                                        Manage Refunds
-                                    </a>
-                                </div>
-                            </li>
-                        </ul>
-                    )}
-                </li>
+                        {openMenu === "payment" && (
+                            <ul className="submenu show">
+                                <li className="dms-nav-item">
+                                    <div className="d-flex align-items-center">
+                                        <FaCaretRight />
+                                        <a href="/dms/payment-history" className="dms-nav-link text-white">
+                                            Payment History
+                                        </a>
+                                    </div>
+                                </li>
+                                <li className="dms-nav-item">
+                                    <div className="d-flex align-items-center">
+                                        <FaCaretRight />
+                                        <a href="/dms/refunds" className="dms-nav-link text-white">
+                                            Manage Refunds
+                                        </a>
+                                    </div>
+                                </li>
+                                <li className="dms-nav-item">
+                                    <div className="d-flex align-items-center">
+                                        <FaCaretRight />
+                                        <a href="/dms/invoice" className="dms-nav-link text-white">
+                                            Manage Invoice
+                                        </a>
+                                    </div>
+                                </li>
+                            </ul>
+                        )}
+                    </li>
 
-                {/* Settings */}
-                <li className="dms-nav-item">
-                    <div
-                        className={`dms-nav-link text-white ${openMenu === "setting" ? "active" : ""}`}
-                        onClick={() => handleMenuToggle("setting")}     
-                    >
-                        <div className="d-flex align-items-center">
-                            <FaCogs className="me-2" />
-                            <span className={isOpen ? "" : "d-none d-md-none d-sm-block"}>Settings</span>
+                    {/* Settings */}
+                    <li className="dms-nav-item">
+                        <div
+                            className={`dms-nav-link text-white ${openMenu === "setting" ? "active" : ""}`}
+                            onClick={() => handleMenuToggle("setting")}
+                        >
+                            <div className="d-flex align-items-center">
+                                <FaCogs className="me-2" />
+                                <span className={isOpen ? "" : "d-none d-md-none d-sm-block"}>Settings</span>
+                            </div>
+                            <FaCaretDown
+                                className={`ms-auto ${openMenu === "setting" ? "rotate" : ""} ${isOpen ? "hide-caret" : ""
+                                    }`}
+                                style={{ transition: "transform 0.3s", display: isOpen ? "inline-block" : "none" }}
+                            />
                         </div>
-                        <FaCaretDown
-                            className={`ms-auto ${openMenu === "setting" ? "rotate" : ""} ${isOpen ? "hide-caret" : ""
-                                }`}
-                            style={{ transition: "transform 0.3s", display: isOpen ? "inline-block" : "none" }}
-                        />
-                    </div>
-                    {openMenu === "setting" && (
-                        <ul className="submenu show">
-                            <li className="dms-nav-item">
-                                <div className="d-flex align-items-center">
-                                    <FaCaretRight />
-                                    <a href="/dms/profile-setting" className="dms-nav-link text-white">
-                                        Profile Setting
-                                    </a>
-                                </div>
-                            </li>
-                            <li className="dms-nav-item">
-                                <div className="d-flex align-items-center">
-                                    <FaCaretRight />
-                                    <a href="/dms/general-store-setting" className="dms-nav-link text-white">
-                                        General Store 
-                                    </a>
-                                </div>
-                            </li>
-                            <li className="dms-nav-item">
-                                <div className="d-flex align-items-center">
-                                    <FaCaretRight />
-                                    <a href="/dms/shipping-tax-setting" className="dms-nav-link text-white">
-                                        Shipping & Tax
-                                    </a>
-                                </div>
-                            </li>
-                        </ul>
-                    )}
-                </li>
+                        {openMenu === "setting" && (
+                            <ul className="submenu show">
+                                <li className="dms-nav-item">
+                                    <div className="d-flex align-items-center">
+                                        <FaCaretRight />
+                                        <a href="/dms/profile-setting" className="dms-nav-link text-white">
+                                            Profile Setting
+                                        </a>
+                                    </div>
+                                </li>
+                                <li className="dms-nav-item">
+                                    <div className="d-flex align-items-center">
+                                        <FaCaretRight />
+                                        <a href="/dms/general-store-setting" className="dms-nav-link text-white">
+                                            General Store
+                                        </a>
+                                    </div>
+                                </li>
+                                <li className="dms-nav-item">
+                                    <div className="d-flex align-items-center">
+                                        <FaCaretRight />
+                                        <a href="/dms/shipping-tax-setting" className="dms-nav-link text-white">
+                                            Shipping & Tax
+                                        </a>
+                                    </div>
+                                </li>
+                            </ul>
+                        )}
+                    </li>
                 </li>
             </ul>
         </div>

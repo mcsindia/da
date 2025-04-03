@@ -12,9 +12,43 @@ import { UserAdd } from './pages/dms/Users/UserAdd';
 import { UserEdit } from './pages/dms/Users/UserEdit';
 import { UserList } from './pages/dms/Users/UserList';
 import { UserProfile } from './pages/dms/Users/UserProfile';
+/* Product Management */
+/* Product */
+import { ProductList } from './pages/dms/Product/ProductTable/ProductList';
+import { ProductAdd } from './pages/dms/Product/ProductTable/ProductAdd';
+import { ProductEdit } from './pages/dms/Product/ProductTable/ProductEdit';
+import { ProductView } from './pages/dms/Product/ProductTable/ProductView';
+/* Category */
+import { CategoryList } from './pages/dms/Product/CatagoryTable/CatagoryList';
+import { CategoryAdd } from './pages/dms/Product/CatagoryTable/CatagoryAdd';
+import { CategoryEdit } from './pages/dms/Product/CatagoryTable/CatagoryEdit';
+import { CategoryView } from './pages/dms/Product/CatagoryTable/CategoryView';
+/* Inventory */
+import { InventoryList } from './pages/dms/Product/InventoryTable/InventoryList';
+import { InventoryAdd } from './pages/dms/Product/InventoryTable/InventoryAdd';
+import { InventoryEdit } from './pages/dms/Product/InventoryTable/InventoryEdit';
+import { InventoryView } from './pages/dms/Product/InventoryTable/InventoryView';
+
+/* Orders */
+/* New Order */
+import { NewOrderList } from './pages/dms/Orders/NewOrders/NewOrderList';
+import { NewOrderEdit } from './pages/dms/Orders/NewOrders/NewOrderListEdit';
+import { NewOrderView } from './pages/dms/Orders/NewOrders/NewOrderView';
+/* Processing Order */
+import { ProcessingOrderList } from './pages/dms/Orders/ProcessingOrders/ProcessingOrderList';
+import { ProcessingOrderEdit} from './pages/dms/Orders/ProcessingOrders/ProcessingOrderEdit';
+import { ProcessingOrderView } from './pages/dms/Orders/ProcessingOrders/ProcessingOrderView';
+/* Completed Order */
+import { CompletedOrderList } from './pages/dms/Orders/CompletedOrders/CompletedOrderList';
+import { CompletedOrderView } from './pages/dms/Orders/CompletedOrders/CompletedOrderView';
+/* Canceled Order */
+import { CanceledOrderList } from './pages/dms/Orders/CanceledOrders/CanceledOrderList';
+import { CanceledOrderEdit } from './pages/dms/Orders/CanceledOrders/CanceledOrderEdit';
+import { CanceledOrderView } from './pages/dms/Orders/CanceledOrders/CanceledOrderView';
+
 /* Website */
 import { Home } from './pages/web/Home/Home';
-import { ProductList } from './pages/web/Products/ProductList';
+import { Products } from './pages/web/Products/Products';
 import { ProductDescription } from './pages/web/Products/ProductDescription';
 import { Catagory } from './pages/web/CatagoryPage/Catagory';
 import { Wishlist } from './pages/web/Wishlist/Wishlist';
@@ -41,10 +75,43 @@ function App() {
         <Route path='/user/edit' element={<UserEdit />} />
          <Route path='/user/profile' element={< UserProfile/>} /> 
 
+        {/* Product Management */}
+        {/* Product Table */}
+        <Route path='/dms/product' element={<ProductList/>} />
+        <Route path='/dms/product/add' element={<ProductAdd/>} />
+        <Route path='/dms/product/edit' element={<ProductEdit/>} />
+        <Route path='/dms/product/view' element={<ProductView/>} />
+        {/* Catagory Table */}
+        <Route path='/dms/manage-category' element={<CategoryList/>} />
+        <Route path='/dms/manage-category/add' element={<CategoryAdd/>} />
+        <Route path='/dms/manage-category/edit' element={<CategoryEdit/>} />
+        <Route path='/dms/manage-category/view' element={<CategoryView/>} />
+        {/* Inventory Table */}
+        <Route path='/dms/inventory' element={<InventoryList/>} />
+        <Route path='/dms/inventory/add' element={<InventoryAdd/>} />
+        <Route path='/dms/inventory/edit' element={<InventoryEdit/>} />
+        <Route path='/dms/inventory/view' element={<InventoryView/>} />
+
+        {/* Order Management */}
+        {/* New Orders */}
+        <Route path='/dms/new-orders' element={<NewOrderList/>} />
+        <Route path='/dms/new-orders/edit' element={<NewOrderEdit/>} />
+        <Route path='/dms/new-orders/view' element={<NewOrderView/>} />
+        {/* Processing Orders */}
+        <Route path='/dms/processing-orders' element={<ProcessingOrderList/>} />
+        <Route path='//dms/processing-orders/edit' element={<ProcessingOrderEdit/>} />
+        <Route path='/dms/processing-orders/view' element={<ProcessingOrderView/>} />
+        {/* Completed Order */}
+        <Route path='/dms/completed-orders' element={<CompletedOrderList/>} />
+        <Route path='/dms/completed-orders/view' element={<CompletedOrderView/>} />
+        {/* Canceled Orders */}
+        <Route path='/dms/canceled-orders' element={<CanceledOrderList/>} />
+        <Route path='/dms/canceled-orders/edit' element={<CanceledOrderEdit/>} />
+        <Route path='/dms/canceled-orders/view' element={<CanceledOrderView/>} />
 
         {/* Website */}
         <Route path='/web' element={<Home/>} />
-        <Route path='/products' element={<ProductList/>} />
+        <Route path='/products' element={<Products/>} />
         <Route path="/product/:id" element={<ProductDescription />} />
         <Route path="/category/:categoryName" element={<Catagory/>} />
         <Route path='/cart' element={<Cart/>} />

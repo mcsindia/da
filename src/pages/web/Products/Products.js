@@ -6,7 +6,7 @@ import { Header } from '../../../components/web/Header/Header';
 import { Footer } from '../../../components/web/Footer/Footer';
 import { ProductSidebar } from './ProductSidebar';
 
-export const ProductList = () => {
+export const Products = () => {
     const [showAll, setShowAll] = useState(false);
     const visibleProducts = showAll ? productData : productData.slice(0, 9);
 
