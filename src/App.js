@@ -57,6 +57,14 @@ import { Contact } from './pages/web/Contact/Contact';
 import { Cart } from './pages/web/Cart/Cart';
 import { MyProfile } from './pages/web/MyProfile/MyProfile';
 import { Order } from './pages/web/Order/Order';
+import { ProductReviewList } from './pages/dms/ReviewsAndFeedback/ProductReviews/ProductReviewList';
+import { ProductReviewView } from './pages/dms/ReviewsAndFeedback/ProductReviews/ProductReviewView';
+import { CustomerFeedbackList } from './pages/dms/ReviewsAndFeedback/CustomerFeedback/CustomerFeedbackList';
+import { CustomerFeedbackView } from './pages/dms/ReviewsAndFeedback/CustomerFeedback/CustomerFeedbackView';
+import { CouponList } from './pages/dms/CouponsAndDiscounts/CouponTable/CouponList';
+import { CouponAdd } from './pages/dms/CouponsAndDiscounts/CouponTable/CouponAdd';
+import { CouponEdit } from './pages/dms/CouponsAndDiscounts/CouponTable/CouponEdit';
+import { CouponView } from './pages/dms/CouponsAndDiscounts/CouponTable/CouponView';
 
 function App() {
   return (
@@ -108,6 +116,21 @@ function App() {
         <Route path='/dms/canceled-orders' element={<CanceledOrderList/>} />
         <Route path='/dms/canceled-orders/edit' element={<CanceledOrderEdit/>} />
         <Route path='/dms/canceled-orders/view' element={<CanceledOrderView/>} />
+
+         {/* Reviews and Feedback */}
+         {/* Product Reviews */}
+         <Route path='/dms/product-review' element={<ProductReviewList/>} />
+         <Route path='/dms/product-review/view' element={<ProductReviewView/>} />
+         {/* Customer Feedback */}
+         <Route path='/dms/customer-feedback' element={<CustomerFeedbackList/>} />
+         <Route path='/dms/customer-feedback/view' element={<CustomerFeedbackView/>} />
+
+         {/* Coupons and Discounts */}
+         {/* Coupon Table */}
+         <Route path='/dms/manage-coupons' element={<CouponList/>} />
+         <Route path='/dms/manage-coupons/add' element={<CouponAdd/>} />
+         <Route path='/dms/manage-coupons/edit' element={<CouponEdit/>} />
+         <Route path='/dms/manage-coupons/view' element={<CouponView/>} />
 
         {/* Website */}
         <Route path='/web' element={<Home/>} />
