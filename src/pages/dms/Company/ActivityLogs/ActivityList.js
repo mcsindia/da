@@ -37,23 +37,6 @@ export const ActivityList = () => {
 
   const handlePageChange = (pageNumber) => setCurrentPage(pageNumber);
 
-  const handleDelete = (id) => {
-    setActivityToDelete(id);
-    setShowDeleteModal(true);
-  };
-
-  const confirmDelete = () => {
-    const updatedActivities = activities.filter((activity) => activity.id !== activityToDelete);
-    setActivities(updatedActivities);
-    setShowDeleteModal(false);
-    setActivityToDelete(null);
-  };
-
-  const cancelDelete = () => {
-    setShowDeleteModal(false);
-    setActivityToDelete(null);
-  };
-
   return (
     <AdminLayout>
       <div className="activity-list-container p-3">
@@ -124,9 +107,7 @@ export const ActivityList = () => {
                   <td>{activity.status}</td>
                   <td>
                     <FaEye title="View" className="icon-blue me-2" onClick={() => navigate("/activity-logs/view", { state: { activity } })} />
-                    <FaEdit title="Edit" className="icon-green me-2" onClick={() => navigate("/activity-logs/edit", { state: { activity } })} />
-                    <FaTrash title="Delete" className="icon-red" onClick={() => handleDelete(activity.id)} />
-                  </td>
+                   </td>
                 </tr>
               ))
             ) : (

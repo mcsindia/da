@@ -65,6 +65,18 @@ import { CouponList } from './pages/dms/CouponsAndDiscounts/CouponTable/CouponLi
 import { CouponAdd } from './pages/dms/CouponsAndDiscounts/CouponTable/CouponAdd';
 import { CouponEdit } from './pages/dms/CouponsAndDiscounts/CouponTable/CouponEdit';
 import { CouponView } from './pages/dms/CouponsAndDiscounts/CouponTable/CouponView';
+import { DiscountList } from './pages/dms/CouponsAndDiscounts/DiscountTable/DiscountList';
+import { DiscountAdd } from './pages/dms/CouponsAndDiscounts/DiscountTable/DiscountAdd';
+import { DiscountEdit } from './pages/dms/CouponsAndDiscounts/DiscountTable/DiscountEdit';
+import { DiscountView } from './pages/dms/CouponsAndDiscounts/DiscountTable/DiscountView';
+import { SalesReportList } from './pages/dms/ReportsAndAnalysis/SalesReports/SalesReportList';
+import { SalesReportView } from './pages/dms/ReportsAndAnalysis/SalesReports/SalesReportView';
+import { ProductPerformanceList } from './pages/dms/ReportsAndAnalysis/ProductPerformance/ProductPerformanceList';
+import { ProductPerformanceView } from './pages/dms/ReportsAndAnalysis/ProductPerformance/ProductPerformanceView';
+import { CustomerActivityList } from './pages/dms/ReportsAndAnalysis/CustomerActivity/CustomerActivityList';
+import { CustomerActivityView } from './pages/dms/ReportsAndAnalysis/CustomerActivity/XustomerActivityView';
+import { PaymentHistoryList } from './pages/dms/PaymentAndTransaction/PaymentHistory/PaymentHistoryList';
+import { PaymentHistoryView } from './pages/dms/PaymentAndTransaction/PaymentHistory/PaymentHistoryView';
 
 function App() {
   return (
@@ -131,6 +143,26 @@ function App() {
          <Route path='/dms/manage-coupons/add' element={<CouponAdd/>} />
          <Route path='/dms/manage-coupons/edit' element={<CouponEdit/>} />
          <Route path='/dms/manage-coupons/view' element={<CouponView/>} />
+         {/* Discount Table */}
+         <Route path='/dms/discounts' element={<DiscountList/>} />
+         <Route path='/dms/discounts/add' element={<DiscountAdd/>} />
+         <Route path='/dms/discounts/edit' element={<DiscountEdit/>} />
+         <Route path='/dms/discounts/view' element={<DiscountView/>} />
+
+         {/* Reports And Analysis */}
+         {/* Sales Report */}
+         <Route path='/dms/sales-report' element={<SalesReportList/>}/>
+         <Route path='/dms/sales-report/view' element={<SalesReportView/>} />
+         {/* Product Performance */}
+         <Route path='/dms/product-performance' element={<ProductPerformanceList/>} />
+         <Route path='/dms/product-performance/view' element={<ProductPerformanceView/>} />
+         {/* Customer Activity */}
+         <Route path='/dms/customer-activity' element={<CustomerActivityList/>} />
+         <Route path='/dms/customer-activity/view' element={<CustomerActivityView/>} />
+              
+        {/* Payment and Transaction */}
+        <Route path='/dms/payment-history' element={<PaymentHistoryList/>} />
+        <Route path='/dms/payment-history/view' element={<PaymentHistoryView/>} />  
 
         {/* Website */}
         <Route path='/web' element={<Home/>} />

@@ -32,7 +32,7 @@ export const AdminLayout = ({ children }) => {
   return (
     <div className="dms-app-container">
       <div ref={sidebarRef}>
-        <Sidebar isOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
+      <Sidebar isOpen={isSidebarOpen} setIsOpen={setIsSidebarOpen} toggleSidebar={toggleSidebar} />
       </div>
 
       <div className={`dms-main-content ${isSidebarOpen ? "sidebar-open" : "sidebar-closed"}`}>

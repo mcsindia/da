@@ -1,21 +1,21 @@
 import React from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { Button, Table, Card, Badge } from "react-bootstrap";
-import { FaArrowLeft, FaPercent } from "react-icons/fa";
+import { FaArrowLeft, FaUser } from "react-icons/fa";
 import { AdminLayout } from "../../../../layouts/dms/AdminLayout/AdminLayout";
 
-export const DiscountView = () => {
+export const CustomerActivityView = () => {
   const location = useLocation();
   const navigate = useNavigate();
 
-  const discount = location.state?.discount;
+  const user = location.state?.user;
 
-  if (!discount) {
+  if (!user) {
     return (
       <AdminLayout>
         <div className="text-center mt-5">
-          <h3>Discount not found</h3>
-          <Button onClick={() => navigate("/dms/discounts")} className="mt-3">
+          <h3>Customer data not found</h3>
+          <Button onClick={() => navigate("/dms/customer-activity")} className="mt-3">
             Go Back
           </Button>
         </div>
@@ -25,26 +25,25 @@ export const DiscountView = () => {
 
   const {
     id,
-    productName,
-    productId,
-    type,
-    value,
-    startDate,
-    endDate,
+    name,
+    orders,
+    totalSpend,
+    lastLogin,
     status,
-    createdAt = "N/A",
-    updatedAt = "N/A",
-    description = "No description available."
-  } = discount;
+    registeredOn = "01-Jan-2024",
+    lastUpdated = "N/A",
+    addedBy = "Admin",
+    notes = "No additional notes available."
+  } = user;
 
   return (
     <AdminLayout>
-      <div className="discount-view-page container mt-4">
+      <div className="customer-activity-view container mt-4">
         <Card className="mb-4">
           <Card.Body className="d-flex justify-content-between align-items-center m-4">
             <div>
-              <h2><FaPercent className="me-2" />{productName}</h2>
-              <p><strong>Discount ID:</strong> {id}</p>
+              <h2><FaUser className="me-2" />  {name}</h2>
+              <p><strong>User ID:</strong> {id}</p>
               <p><strong>Status:</strong> <Badge bg={status === "Active" ? "success" : "danger"}>{status}</Badge></p>
             </div>
             <Button className="back-button" onClick={() => navigate(-1)}>
@@ -53,26 +52,22 @@ export const DiscountView = () => {
           </Card.Body>
         </Card>
 
-        {/* Discount Details */}
+        {/* Activity Summary */}
         <section className="mt-4">
-          <h4>Discount Details</h4>
+          <h4>Activity Summary</h4>
           <Table striped bordered hover>
             <thead>
               <tr>
-                <th>Product ID</th>
-                <th>Type</th>
-                <th>Value</th>
-                <th>Start Date</th>
-                <th>End Date</th>
+                <th>Orders Placed</th>
+                <th>Total Spend (₹)</th>
+                <th>Last Login</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td>{productId}</td>
-                <td>{type}</td>
-                <td>{value}</td>
-                <td>{startDate}</td>
-                <td>{endDate}</td>
+                <td>{orders}</td>
+                <td>{totalSpend}</td>
+                <td>{lastLogin}</td>
               </tr>
             </tbody>
           </Table>
@@ -80,10 +75,10 @@ export const DiscountView = () => {
 
         <hr />
 
-        {/* Description */}
+        {/* Notes */}
         <section className="mt-4">
-          <h4>Description</h4>
-          <p>{description}</p>
+          <h4>Notes</h4>
+          <p>{notes}</p>
         </section>
 
         <hr />
@@ -91,8 +86,9 @@ export const DiscountView = () => {
         {/* Meta Info */}
         <section className="mt-4">
           <h4>Additional Information</h4>
-          <p><strong>Date Created:</strong> {createdAt}</p>
-          <p><strong>Last Updated:</strong> {updatedAt}</p>
+          <p><strong>Added By:</strong> {addedBy}</p>
+          <p><strong>Registered On:</strong> {registeredOn}</p>
+          <p><strong>Last Updated:</strong> {lastUpdated}</p>
         </section>
       </div>
     </AdminLayout>

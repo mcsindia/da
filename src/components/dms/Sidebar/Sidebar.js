@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useRef } from "react";
 import {
     FaChartLine,
     FaUsers,
@@ -10,38 +11,73 @@ import {
     FaRegEnvelope,
     FaRegStar,
     FaBox,
-    FaProductHunt, FaCrown
+    FaProductHunt, FaCrown, FaAppStore
 } from "react-icons/fa";
+import { useLocation } from "react-router-dom";
 
-export const Sidebar = ({ isOpen }) => {
+export const Sidebar = ({ isOpen, setIsOpen }) => {
+    const sidebarRef = useRef();
+    const location = useLocation();
     const [activeMenu, setActiveMenu] = useState("");
-    const [openMenu, setOpenMenu] = useState(null);
-    const [openSubMenu, setOpenSubMenu] = useState(null);
+    const [openMenu, setOpenMenu] = useState(localStorage.getItem("openMenu") || null);
+    const [openSubMenu, setOpenSubMenu] = useState(localStorage.getItem("openSubMenu") || null);
+    const [openSubSubMenu, setOpenSubSubMenu] = useState(localStorage.getItem("openSubSubMenu") || null);
 
     const handleMenuToggle = (menuName) => {
-        setOpenMenu((prev) => (prev === menuName ? null : menuName));
-        setOpenSubMenu(null);
+        const newOpenMenu = openMenu === menuName ? null : menuName;
+        setOpenMenu(newOpenMenu);
+        setOpenSubMenu(null); // Close any open submenus when switching menus
+
+        // Save state in localStorage
+        localStorage.setItem("openMenu", newOpenMenu);
     };
 
     const handleSubMenuToggle = (subMenuName) => {
-        setOpenSubMenu((prev) => (prev === subMenuName ? null : subMenuName));
+        const newOpenSubMenu = openSubMenu === subMenuName ? null : subMenuName;
+        setOpenSubMenu(newOpenSubMenu);
+
+        // Save state in localStorage
+        localStorage.setItem("openSubMenu", newOpenSubMenu);
     };
 
-    // Close menus when clicking outside
+    const handleSubSubMenuToggle = (SubsubMenuName) => {
+        const newOpenSubSubMenu = openSubSubMenu === SubsubMenuName ? null : SubsubMenuName;
+        setOpenSubSubMenu(newOpenSubSubMenu);
+
+        // Save state in localStorage
+        localStorage.setItem("openSubSubMenu", newOpenSubSubMenu);
+    };
+
     useEffect(() => {
-        const handleOutsideClick = (e) => {
-            if (!e.target.closest(".dms-sidebar")) {
+        const handleClickOutside = (event) => {
+            const isSmallDevice = window.innerWidth <= 768;
+            if (
+                isSmallDevice &&
+                sidebarRef.current &&
+                !sidebarRef.current.contains(event.target)
+            ) {
+                // Fully hide sidebar
+                setIsOpen(false);
+    
+                // Optional: Reset open menus
                 setOpenMenu(null);
                 setOpenSubMenu(null);
+                setOpenSubSubMenu(null);
+                localStorage.removeItem("openMenu");
+                localStorage.removeItem("openSubMenu");
+                localStorage.removeItem("openSubSubMenu");
             }
         };
-
-        document.addEventListener("click", handleOutsideClick);
-        return () => document.removeEventListener("click", handleOutsideClick);
+    
+        document.addEventListener("mousedown", handleClickOutside);
+        return () => {
+            document.removeEventListener("mousedown", handleClickOutside);
+        };
     }, []);
+      
 
     return (
-        <div className={`dms-sidebar bg-color text-white ${isOpen ? "open" : "closed"}`}>
+        <div className={`dms-sidebar bg-color text-white ${isOpen ? "open" : "closed"}`}   ref={sidebarRef}>
             {/* Sidebar Header */}
             <div className="p-3 d-flex align-items-center sidebar-title">
                 <a href="/" className="d-flex align-items-center text-white text-decoration-none">
@@ -69,8 +105,8 @@ export const Sidebar = ({ isOpen }) => {
                     </a>
                 </li>
 
-                {/* Company */}
-                <li className="dms-nav-item">
+                  {/* Company */}
+                  <li className="dms-nav-item">
                     <div
                         className={`dms-nav-link text-white ${openMenu === "company" ? "active" : ""}`}
                         onClick={() => handleMenuToggle("company")}
@@ -80,11 +116,11 @@ export const Sidebar = ({ isOpen }) => {
                             <span className={isOpen ? "" : "d-none d-md-none d-sm-block"}>Company</span>
                         </div>
                         <FaCaretDown
-                            className={`ms-auto ${openMenu === "user" ? "rotate" : ""} ${isOpen ? "hide-caret" : ""
-                                }`}
+                            className={`ms-auto ${openMenu === "user" ? "rotate" : ""} ${isOpen ? "hide-caret" : ""}`}
                             style={{ transition: "transform 0.3s", display: isOpen ? "inline-block" : "none" }}
                         />
                     </div>
+
                     {openMenu === "company" && (
                         <ul className="submenu show">
                             <li className="dms-nav-item">
@@ -97,54 +133,57 @@ export const Sidebar = ({ isOpen }) => {
                                         Employee & Staff Management
                                     </div>
                                 </div>
+
                                 {openSubMenu === "company" && (
                                     <ul className="submenu show">
-                                        <div >
-                                            <li className="dms-nav-item">
-                                                <div className="d-flex align-items-center">
-                                                    <FaCaretRight />
-                                                    <a href="/employee" className="dms-nav-link text-white">
-                                                        All Employees
-                                                    </a>
-                                                </div>
-                                            </li>
-                                            <li className="dms-nav-item">
-                                                <div className="d-flex align-items-center">
-                                                    <FaCaretRight />
-                                                    <a href="/department" className="dms-nav-link text-white">Department</a>
-                                                </div>
-                                            </li>
-                                            <li className="dms-nav-item">
-                                                <div className="d-flex align-items-center">
-                                                    <FaCaretRight />
-                                                    <a href="/designation" className="dms-nav-link text-white">Designation</a>
-                                                </div>
-                                            </li>
-                                            <li className="dms-nav-item">
-                                                <div className="d-flex align-items-center">
-                                                    <FaCaretRight />
-                                                    <a href="/employee-roles" className="dms-nav-link text-white">
-                                                        Role
-                                                    </a>
-                                                </div>
-                                            </li>
-                                            <li className="dms-nav-item">
-                                                <div className="d-flex align-items-center">
-                                                    <FaCaretRight />
-                                                    <a href="/role-permission" className="dms-nav-link text-white">
-                                                        Roles-Permission
-                                                    </a>
-                                                </div>
-                                            </li>
-                                            <li className="dms-nav-item">
-                                                <div className="d-flex align-items-center">
-                                                    <FaCaretRight />
-                                                    <a href="/activity-logs" className="dms-nav-link text-white">
-                                                        Activity Logs
-                                                    </a>
-                                                </div>
-                                            </li>
-                                        </div>
+                                        <li className="dms-nav-item">
+                                            <div className="d-flex align-items-center">
+                                                <FaCaretRight />
+                                                <a href="/employee" className="dms-nav-link text-white">
+                                                    All Employees
+                                                </a>
+                                            </div>
+                                        </li>
+                                        <li className="dms-nav-item">
+                                            <div className="d-flex align-items-center">
+                                                <FaCaretRight />
+                                                <a href="/department" className="dms-nav-link text-white">
+                                                    Department
+                                                </a>
+                                            </div>
+                                        </li>
+                                        <li className="dms-nav-item">
+                                            <div className="d-flex align-items-center">
+                                                <FaCaretRight />
+                                                <a href="/designation" className="dms-nav-link text-white">
+                                                    Designation
+                                                </a>
+                                            </div>
+                                        </li>
+                                        <li className="dms-nav-item">
+                                            <div className="d-flex align-items-center">
+                                                <FaCaretRight />
+                                                <a href="/employee-roles" className="dms-nav-link text-white">
+                                                    Role
+                                                </a>
+                                            </div>
+                                        </li>
+                                        <li className="dms-nav-item">
+                                            <div className="d-flex align-items-center">
+                                                <FaCaretRight />
+                                                <a href="/role-permission" className="dms-nav-link text-white">
+                                                    Roles-Permission
+                                                </a>
+                                            </div>
+                                        </li>
+                                        <li className="dms-nav-item">
+                                            <div className="d-flex align-items-center">
+                                                <FaCaretRight />
+                                                <a href="/activity-logs" className="dms-nav-link text-white">
+                                                    Activity Logs
+                                                </a>
+                                            </div>
+                                        </li>
                                     </ul>
                                 )}
                             </li>
@@ -181,8 +220,8 @@ export const Sidebar = ({ isOpen }) => {
                     )}
                 </li>
 
-                {/* Product Management */}
-                <li className="dms-nav-item">
+  {/* Product Management */}
+  <li className="dms-nav-item">
                     <div
                         className={`dms-nav-link text-white ${openMenu === "product" ? "active" : ""}`}
                         onClick={() => handleMenuToggle("product")}
@@ -227,8 +266,8 @@ export const Sidebar = ({ isOpen }) => {
                     )}
                 </li>
 
-                {/* Order Management */}
-                <li className="dms-nav-item">
+                 {/* Order Management */}
+                 <li className="dms-nav-item">
                     <div
                         className={`dms-nav-link text-white ${openMenu === "order" ? "active" : ""}`}
                         onClick={() => handleMenuToggle("order")}
@@ -279,9 +318,10 @@ export const Sidebar = ({ isOpen }) => {
                             </li>
                         </ul>
                     )}
+                    </li>
 
-                    {/* Reviews and Feedback */}
-                    <li className="dms-nav-item">
+                      {/* Reviews and Feedback */}
+                      <li className="dms-nav-item">
                         <div
                             className={`dms-nav-link text-white ${openMenu === "reviews" ? "active" : ""}`}
                             onClick={() => handleMenuToggle("reviews")}
@@ -493,7 +533,6 @@ export const Sidebar = ({ isOpen }) => {
                             </ul>
                         )}
                     </li>
-                </li>
             </ul>
         </div>
     );

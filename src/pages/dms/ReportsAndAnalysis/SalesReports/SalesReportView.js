@@ -1,21 +1,21 @@
 import React from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { Button, Table, Card, Badge } from "react-bootstrap";
-import { FaArrowLeft, FaPercent } from "react-icons/fa";
+import { FaArrowLeft, FaChartLine } from "react-icons/fa";
 import { AdminLayout } from "../../../../layouts/dms/AdminLayout/AdminLayout";
 
-export const DiscountView = () => {
+export const SalesReportView = () => {
   const location = useLocation();
   const navigate = useNavigate();
 
-  const discount = location.state?.discount;
+  const report = location.state?.report;
 
-  if (!discount) {
+  if (!report) {
     return (
       <AdminLayout>
         <div className="text-center mt-5">
-          <h3>Discount not found</h3>
-          <Button onClick={() => navigate("/dms/discounts")} className="mt-3">
+          <h3>Sales Report not found</h3>
+          <Button onClick={() => navigate("/dms/sales-report")} className="mt-3">
             Go Back
           </Button>
         </div>
@@ -24,27 +24,26 @@ export const DiscountView = () => {
   }
 
   const {
-    id,
-    productName,
-    productId,
-    type,
-    value,
-    startDate,
-    endDate,
-    status,
-    createdAt = "N/A",
-    updatedAt = "N/A",
-    description = "No description available."
-  } = discount;
+    reportId,
+    month,
+    totalOrders,
+    revenue,
+    avgOrderValue,
+    createdBy,
+    createdOn,
+    updatedOn = "N/A",
+    notes = "No notes available.",
+    status
+  } = report;
 
   return (
     <AdminLayout>
-      <div className="discount-view-page container mt-4">
+      <div className="sales-report-view container mt-4">
         <Card className="mb-4">
           <Card.Body className="d-flex justify-content-between align-items-center m-4">
             <div>
-              <h2><FaPercent className="me-2" />{productName}</h2>
-              <p><strong>Discount ID:</strong> {id}</p>
+              <h2><FaChartLine className="me-2" /> Sales Report - {month}</h2>
+              <p><strong>Report ID:</strong> {reportId || 'N/A'}</p>
               <p><strong>Status:</strong> <Badge bg={status === "Active" ? "success" : "danger"}>{status}</Badge></p>
             </div>
             <Button className="back-button" onClick={() => navigate(-1)}>
@@ -53,26 +52,24 @@ export const DiscountView = () => {
           </Card.Body>
         </Card>
 
-        {/* Discount Details */}
+        {/* Report Details */}
         <section className="mt-4">
-          <h4>Discount Details</h4>
+          <h4>Report Summary</h4>
           <Table striped bordered hover>
             <thead>
               <tr>
-                <th>Product ID</th>
-                <th>Type</th>
-                <th>Value</th>
-                <th>Start Date</th>
-                <th>End Date</th>
+                <th>Month</th>
+                <th>Total Orders</th>
+                <th>Revenue (₹)</th>
+                <th>Avg Order Value (₹)</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td>{productId}</td>
-                <td>{type}</td>
-                <td>{value}</td>
-                <td>{startDate}</td>
-                <td>{endDate}</td>
+                <td>{month}</td>
+                <td>{totalOrders}</td>
+                <td>{revenue}</td>
+                <td>{avgOrderValue}</td>
               </tr>
             </tbody>
           </Table>
@@ -80,10 +77,10 @@ export const DiscountView = () => {
 
         <hr />
 
-        {/* Description */}
+        {/* Notes */}
         <section className="mt-4">
-          <h4>Description</h4>
-          <p>{description}</p>
+          <h4>Notes</h4>
+          <p>{notes}</p>
         </section>
 
         <hr />
@@ -91,8 +88,9 @@ export const DiscountView = () => {
         {/* Meta Info */}
         <section className="mt-4">
           <h4>Additional Information</h4>
-          <p><strong>Date Created:</strong> {createdAt}</p>
-          <p><strong>Last Updated:</strong> {updatedAt}</p>
+          <p><strong>Created By:</strong> {createdBy}</p>
+          <p><strong>Created On:</strong> {createdOn}</p>
+          <p><strong>Last Updated:</strong> {updatedOn}</p>
         </section>
       </div>
     </AdminLayout>

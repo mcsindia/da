@@ -594,86 +594,8 @@ hr {
   display: block;
 }
 
-@media (max-width: 768px) {
-  .dms-sidebar {
-    width: 250px;
-    /* Full width when open */
-    position: fixed;
-    left: -250px;
-    /* Initially hidden */
-    transition: left 0.3s ease;
-  }
-
-  .dms-sidebar.open {
-    left: 0;
-    /* Slide in when opened */
-    width: 120px;
-  }
-
-  .dms-sidebar.closed {
-    width: 0;
-    overflow: hidden;
-  }
-
-  .dms-sidebar.open .sidebar-title {
-    justify-content: center;
-  }
-
-  .dms-sidebar.open .sidebar-title h4,
-  .dms-sidebar.open .dms-nav-link span {
-    display: none;
-  }
-
-  .dms-sidebar .dms-nav-link .me-2 {
-    font-size: 1.3rem;
-  }
-
-  .dms-sidebar.open .dms-nav-link {
-    justify-content: center;
-  }
-
-  .submenu {
-    position: absolute;
-    top: 0;
-    left: 100%;
-    /* Position the submenu to the right of the parent */
-    background-color: var(--dark-blue);
-    /* Background color for submenu */
-    min-width: 150px;
-    /* Set a minimum width for submenu */
-    display: none;
-    /* Initially hidden */
-    z-index: 1000;
-    /* Ensure submenu appears on top */
-  }
-
-  .submenu.show {
-    display: block;
-    padding-left: 20px;
-    /* Show submenu when toggled */
-  }
-
-  .dms-nav-item {
-    position: relative;
-    /* Allows submenu to position relative to its parent */
-  }
-
-  /* Submenu item styling */
-  .submenu .dms-nav-item .dms-nav-link {
-    padding: 8px 12px;
-    font-size: 0.9rem;
-    /* Adjust font size */
-    color: var(--light-border-gray);
-    /* Light text color */
-    transition: background 0.3s ease;
-  }
-
-  .submenu .dms-nav-item .dms-nav-link:hover {
-    background-color: var(--white-transparent-20);
-    /* Highlight effect on hover */
-  }
-
-  .hide-caret {
+@media (max-width:768px) {
+  .dms-sidebar.closed{
     display: none !important;
   }
 }
