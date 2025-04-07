@@ -45,6 +45,44 @@ import { CompletedOrderView } from './pages/dms/Orders/CompletedOrders/Completed
 import { CanceledOrderList } from './pages/dms/Orders/CanceledOrders/CanceledOrderList';
 import { CanceledOrderEdit } from './pages/dms/Orders/CanceledOrders/CanceledOrderEdit';
 import { CanceledOrderView } from './pages/dms/Orders/CanceledOrders/CanceledOrderView';
+/* Reviews and fwwdback */
+/* Product Reviews */
+import { ProductReviewList } from './pages/dms/ReviewsAndFeedback/ProductReviews/ProductReviewList';
+import { ProductReviewView } from './pages/dms/ReviewsAndFeedback/ProductReviews/ProductReviewView';
+/* Customer Feedback */
+import { CustomerFeedbackList } from './pages/dms/ReviewsAndFeedback/CustomerFeedback/CustomerFeedbackList';
+import { CustomerFeedbackView } from './pages/dms/ReviewsAndFeedback/CustomerFeedback/CustomerFeedbackView';
+/* Coupons and Discount */
+/* Coupons */
+import { CouponList } from './pages/dms/CouponsAndDiscounts/CouponTable/CouponList';
+import { CouponAdd } from './pages/dms/CouponsAndDiscounts/CouponTable/CouponAdd';
+import { CouponEdit } from './pages/dms/CouponsAndDiscounts/CouponTable/CouponEdit';
+import { CouponView } from './pages/dms/CouponsAndDiscounts/CouponTable/CouponView';
+/* Discount */
+import { DiscountList } from './pages/dms/CouponsAndDiscounts/DiscountTable/DiscountList';
+import { DiscountAdd } from './pages/dms/CouponsAndDiscounts/DiscountTable/DiscountAdd';
+import { DiscountEdit } from './pages/dms/CouponsAndDiscounts/DiscountTable/DiscountEdit';
+import { DiscountView } from './pages/dms/CouponsAndDiscounts/DiscountTable/DiscountView';
+/* Report and Analysis */
+import { SalesReportList } from './pages/dms/ReportsAndAnalysis/SalesReports/SalesReportList';
+import { SalesReportView } from './pages/dms/ReportsAndAnalysis/SalesReports/SalesReportView';
+import { ProductPerformanceList } from './pages/dms/ReportsAndAnalysis/ProductPerformance/ProductPerformanceList';
+import { ProductPerformanceView } from './pages/dms/ReportsAndAnalysis/ProductPerformance/ProductPerformanceView';
+import { CustomerActivityList } from './pages/dms/ReportsAndAnalysis/CustomerActivity/CustomerActivityList';
+import { CustomerActivityView } from './pages/dms/ReportsAndAnalysis/CustomerActivity/XustomerActivityView';
+/* Payment and Transction */
+import { PaymentHistoryList } from './pages/dms/PaymentAndTransaction/PaymentHistory/PaymentHistoryList';
+import { PaymentHistoryView } from './pages/dms/PaymentAndTransaction/PaymentHistory/PaymentHistoryView';
+import { RefundList } from './pages/dms/PaymentAndTransaction/Refunds/RefundList';
+import { RefundAdd } from './pages/dms/PaymentAndTransaction/Refunds/RefundAdd';
+import { RefundEdit } from './pages/dms/PaymentAndTransaction/Refunds/RefundEdit';
+import { RefundView } from './pages/dms/PaymentAndTransaction/Refunds/RefundView';
+import { InvoiceList } from './pages/dms/PaymentAndTransaction/Invoice/InvoiceList';
+import { InvoiceAdd } from './pages/dms/PaymentAndTransaction/Invoice/InvoiceAdd';
+import { InvoiceEdit } from './pages/dms/PaymentAndTransaction/Invoice/InvoiceEdit';
+import { InvoiceView } from './pages/dms/PaymentAndTransaction/Invoice/InvoiceView';
+/* Settings */
+import { ProfileSetting } from './pages/dms/Settings/ProfileSetting';
 
 /* Website */
 import { Home } from './pages/web/Home/Home';
@@ -57,26 +95,6 @@ import { Contact } from './pages/web/Contact/Contact';
 import { Cart } from './pages/web/Cart/Cart';
 import { MyProfile } from './pages/web/MyProfile/MyProfile';
 import { Order } from './pages/web/Order/Order';
-import { ProductReviewList } from './pages/dms/ReviewsAndFeedback/ProductReviews/ProductReviewList';
-import { ProductReviewView } from './pages/dms/ReviewsAndFeedback/ProductReviews/ProductReviewView';
-import { CustomerFeedbackList } from './pages/dms/ReviewsAndFeedback/CustomerFeedback/CustomerFeedbackList';
-import { CustomerFeedbackView } from './pages/dms/ReviewsAndFeedback/CustomerFeedback/CustomerFeedbackView';
-import { CouponList } from './pages/dms/CouponsAndDiscounts/CouponTable/CouponList';
-import { CouponAdd } from './pages/dms/CouponsAndDiscounts/CouponTable/CouponAdd';
-import { CouponEdit } from './pages/dms/CouponsAndDiscounts/CouponTable/CouponEdit';
-import { CouponView } from './pages/dms/CouponsAndDiscounts/CouponTable/CouponView';
-import { DiscountList } from './pages/dms/CouponsAndDiscounts/DiscountTable/DiscountList';
-import { DiscountAdd } from './pages/dms/CouponsAndDiscounts/DiscountTable/DiscountAdd';
-import { DiscountEdit } from './pages/dms/CouponsAndDiscounts/DiscountTable/DiscountEdit';
-import { DiscountView } from './pages/dms/CouponsAndDiscounts/DiscountTable/DiscountView';
-import { SalesReportList } from './pages/dms/ReportsAndAnalysis/SalesReports/SalesReportList';
-import { SalesReportView } from './pages/dms/ReportsAndAnalysis/SalesReports/SalesReportView';
-import { ProductPerformanceList } from './pages/dms/ReportsAndAnalysis/ProductPerformance/ProductPerformanceList';
-import { ProductPerformanceView } from './pages/dms/ReportsAndAnalysis/ProductPerformance/ProductPerformanceView';
-import { CustomerActivityList } from './pages/dms/ReportsAndAnalysis/CustomerActivity/CustomerActivityList';
-import { CustomerActivityView } from './pages/dms/ReportsAndAnalysis/CustomerActivity/XustomerActivityView';
-import { PaymentHistoryList } from './pages/dms/PaymentAndTransaction/PaymentHistory/PaymentHistoryList';
-import { PaymentHistoryView } from './pages/dms/PaymentAndTransaction/PaymentHistory/PaymentHistoryView';
 
 function App() {
   return (
@@ -161,8 +179,22 @@ function App() {
          <Route path='/dms/customer-activity/view' element={<CustomerActivityView/>} />
               
         {/* Payment and Transaction */}
+        {/* Payment History */}
         <Route path='/dms/payment-history' element={<PaymentHistoryList/>} />
-        <Route path='/dms/payment-history/view' element={<PaymentHistoryView/>} />  
+        <Route path='/dms/payment-history/view' element={<PaymentHistoryView/>} />
+        {/* Refunds */}
+        <Route path='/dms/refunds' element={<RefundList/>} />
+        <Route path='/dms/refunds/add' element={<RefundAdd/>} />
+        <Route path='/dms/refunds/edit' element={<RefundEdit/>} />
+        <Route path='/dms/refunds/view' element={<RefundView/>} />  
+        {/* Invoice */}
+        <Route path='/dms/invoice' element={<InvoiceList/>} />
+        <Route path='/dms/invoice/add' element={<InvoiceAdd/>} />
+        <Route path='/dms/invoice/edit' element={<InvoiceEdit/>} />
+        <Route path='/dms/invoice/view' element={<InvoiceView/>} />
+
+        {/* Setting */}
+        <Route path='/dms/profile-setting' element={<ProfileSetting/>} />
 
         {/* Website */}
         <Route path='/web' element={<Home/>} />

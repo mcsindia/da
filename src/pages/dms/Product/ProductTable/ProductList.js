@@ -10,7 +10,7 @@ export const ProductList = () => {
   const initialProducts = [
     { id: 'P101', name: 'Antique Necklace', category: 'Jewelry', price: 1200, stock: 50, status: 'Active' },
     { id: 'P102', name: 'Block Print Saree', category: 'Clothing', price: 2500, stock: 30, status: 'Active' },
-    { id: 'P103', name: 'Wooden Handicraft Box', category: 'Home Decor', price: 899, stock: 20, status: 'Inactive' }, 
+    { id: 'P103', name: 'Wooden Handicraft Box', category: 'Home Decor', price: 899, stock: 20, status: 'Inactive' },
   ];
 
   const [products, setProducts] = useState(initialProducts);
@@ -43,6 +43,16 @@ export const ProductList = () => {
     const updatedProducts = products.filter((product) => product.id !== id);
     setProducts(updatedProducts);
   };
+
+  const handleToggleStatus = (id) => {
+    const updatedProducts = products.map(product =>
+      product.id === id
+        ? { ...product, status: product.status === 'Active' ? 'Inactive' : 'Active' }
+        : product
+    );
+    setProducts(updatedProducts);
+  };
+
 
   return (
     <AdminLayout>
@@ -98,7 +108,16 @@ export const ProductList = () => {
                     <td>{product.category}</td>
                     <td>₹{product.price}</td>
                     <td>{product.stock}</td>
-                    <td>{product.status}</td>
+                    <td>
+                      <Form.Check
+                        type="switch"
+                        id={`status-switch-${product.id}`}
+                        checked={product.status === 'Active'}
+                        onChange={() => handleToggleStatus(product.id)}
+                        label={product.status}
+                      />
+                    </td>
+
                     <td>
                       <FaEye title="View" className="icon-blue me-2" onClick={() => navigate('/dms/product/view', { state: { product } })} />
                       <FaEdit title="Edit" className="icon-green me-2" onClick={() => handleEdit(product)} />

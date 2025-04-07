@@ -65,7 +65,7 @@ export const InventoryAdd = () => {
             </Form.Group>
 
             <div className='d-flex'>
-              <Button type='submit' className='me-2'>Save</Button>
+              <Button type='submit' className='me-2'>Save changes</Button>
               <Button type='cancel' onClick={() => navigate('/dms/inventory')}>Cancel</Button>
             </div>
           </Form>

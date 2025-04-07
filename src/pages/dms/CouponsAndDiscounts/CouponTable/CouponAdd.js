@@ -102,7 +102,7 @@ export const CouponAdd = () => {
             </Form.Group>
 
             <div className='d-flex'>
-              <Button type='submit' className='me-2'>Save</Button>
+              <Button type='submit' className='me-2'>Save changes</Button>
               <Button type='cancel' onClick={() => navigate('/dms/manage-coupons')}>Cancel</Button>
             </div>
           </Form>
