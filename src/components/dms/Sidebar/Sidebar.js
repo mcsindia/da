@@ -514,22 +514,6 @@ export const Sidebar = ({ isOpen, setIsOpen }) => {
                                         </a>
                                     </div>
                                 </li>
-                                <li className="dms-nav-item">
-                                    <div className="d-flex align-items-center">
-                                        <FaCaretRight />
-                                        <a href="/dms/general-store-setting" className="dms-nav-link text-white">
-                                            General Store
-                                        </a>
-                                    </div>
-                                </li>
-                                <li className="dms-nav-item">
-                                    <div className="d-flex align-items-center">
-                                        <FaCaretRight />
-                                        <a href="/dms/shipping-tax-setting" className="dms-nav-link text-white">
-                                            Shipping & Tax
-                                        </a>
-                                    </div>
-                                </li>
                             </ul>
                         )}
                     </li>

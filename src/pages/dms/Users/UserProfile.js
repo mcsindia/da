@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { Button, Table, Pagination, Card } from "react-bootstrap";
 import { FaArrowLeft, FaPlus, FaStar, } from "react-icons/fa";
-import defaultProfileImg from "../../../../assets/images/profile.png";
-import { AdminLayout } from "../../../../layouts/dms/AdminLayout/AdminLayout";
+import defaultProfileImg from "../../../assets/images/profile.png";
+import { AdminLayout } from "../../../layouts/dms/AdminLayout/AdminLayout";
 
 export const UserProfile = () => {
   const location = useLocation();

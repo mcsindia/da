@@ -45,15 +45,15 @@ import { CompletedOrderView } from './pages/dms/Orders/CompletedOrders/Completed
 import { CanceledOrderList } from './pages/dms/Orders/CanceledOrders/CanceledOrderList';
 import { CanceledOrderEdit } from './pages/dms/Orders/CanceledOrders/CanceledOrderEdit';
 import { CanceledOrderView } from './pages/dms/Orders/CanceledOrders/CanceledOrderView';
-/* Reviews and fwwdback */
+/* Reviews and Feedback */
 /* Product Reviews */
 import { ProductReviewList } from './pages/dms/ReviewsAndFeedback/ProductReviews/ProductReviewList';
 import { ProductReviewView } from './pages/dms/ReviewsAndFeedback/ProductReviews/ProductReviewView';
 /* Customer Feedback */
 import { CustomerFeedbackList } from './pages/dms/ReviewsAndFeedback/CustomerFeedback/CustomerFeedbackList';
 import { CustomerFeedbackView } from './pages/dms/ReviewsAndFeedback/CustomerFeedback/CustomerFeedbackView';
-/* Coupons and Discount */
-/* Coupons */
+/* Coupons and Discounts */
+/* Coupon */
 import { CouponList } from './pages/dms/CouponsAndDiscounts/CouponTable/CouponList';
 import { CouponAdd } from './pages/dms/CouponsAndDiscounts/CouponTable/CouponAdd';
 import { CouponEdit } from './pages/dms/CouponsAndDiscounts/CouponTable/CouponEdit';
@@ -63,25 +63,31 @@ import { DiscountList } from './pages/dms/CouponsAndDiscounts/DiscountTable/Disc
 import { DiscountAdd } from './pages/dms/CouponsAndDiscounts/DiscountTable/DiscountAdd';
 import { DiscountEdit } from './pages/dms/CouponsAndDiscounts/DiscountTable/DiscountEdit';
 import { DiscountView } from './pages/dms/CouponsAndDiscounts/DiscountTable/DiscountView';
-/* Report and Analysis */
+/* Reports and Analysis */
+/* Sales Report */
 import { SalesReportList } from './pages/dms/ReportsAndAnalysis/SalesReports/SalesReportList';
 import { SalesReportView } from './pages/dms/ReportsAndAnalysis/SalesReports/SalesReportView';
+/* Product Performance */
 import { ProductPerformanceList } from './pages/dms/ReportsAndAnalysis/ProductPerformance/ProductPerformanceList';
 import { ProductPerformanceView } from './pages/dms/ReportsAndAnalysis/ProductPerformance/ProductPerformanceView';
+/* Customer Activity */
 import { CustomerActivityList } from './pages/dms/ReportsAndAnalysis/CustomerActivity/CustomerActivityList';
 import { CustomerActivityView } from './pages/dms/ReportsAndAnalysis/CustomerActivity/XustomerActivityView';
-/* Payment and Transction */
+/* Payment and Transaction */
+/* Payment History */
 import { PaymentHistoryList } from './pages/dms/PaymentAndTransaction/PaymentHistory/PaymentHistoryList';
 import { PaymentHistoryView } from './pages/dms/PaymentAndTransaction/PaymentHistory/PaymentHistoryView';
+/* Refund */
 import { RefundList } from './pages/dms/PaymentAndTransaction/Refunds/RefundList';
 import { RefundAdd } from './pages/dms/PaymentAndTransaction/Refunds/RefundAdd';
 import { RefundEdit } from './pages/dms/PaymentAndTransaction/Refunds/RefundEdit';
 import { RefundView } from './pages/dms/PaymentAndTransaction/Refunds/RefundView';
+/* Invoice */
 import { InvoiceList } from './pages/dms/PaymentAndTransaction/Invoice/InvoiceList';
 import { InvoiceAdd } from './pages/dms/PaymentAndTransaction/Invoice/InvoiceAdd';
 import { InvoiceEdit } from './pages/dms/PaymentAndTransaction/Invoice/InvoiceEdit';
 import { InvoiceView } from './pages/dms/PaymentAndTransaction/Invoice/InvoiceView';
-/* Settings */
+/* Profile Setting */
 import { ProfileSetting } from './pages/dms/Settings/ProfileSetting';
 
 /* Website */
