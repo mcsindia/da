@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Form, Button } from 'react-bootstrap';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { AdminLayout } from '../../../layouts/dms/AdminLayout/AdminLayout';
+import { AdminLayout } from '../../../../layouts/dms/AdminLayout/AdminLayout';
 
 export const EmployeeRoleEdit = () => {
     const navigate = useNavigate();

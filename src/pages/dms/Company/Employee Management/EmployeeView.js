@@ -1,9 +1,9 @@
 import React from 'react';
-import { AdminLayout } from '../../../layouts/dms/AdminLayout/AdminLayout';
+import { AdminLayout } from '../../../../layouts/dms/AdminLayout/AdminLayout';
 import { Row, Col, Card, Image, Table } from 'react-bootstrap';
-import profile_img from '../../../assets/images/profile.png';
+import profile_img from '../../../../assets/images/profile.png';
 
-export const EmployeeVView = () => {
+export const EmployeeView = () => {
     // Dummy employee data (replace with actual fetched data)
     const employee = {
         profilePhoto: profile_img,

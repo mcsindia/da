@@ -7,6 +7,34 @@ import { Dashboard } from './pages/dms/Dashboard/Dashboard';
 import { Login } from './layouts/dms/AuthLayout/Login';
 import { ForgetPassword } from './layouts/dms/AuthLayout/ForgetPassword'
 import { ResetPassword } from './layouts/dms/AuthLayout/ResetPassword'
+/* Department */
+import { DepartmentList } from './pages/dms/Company/Department/DepartmentList';
+import { DepartmentAdd } from './pages/dms/Company/Department/DepartmentAdd';
+import { DepartmentEdit } from './pages/dms/Company/Department/DepartmentEdit';
+/* Designation */
+import { DesignationList } from './pages/dms/Company/Designation/DesignationList';
+import { DesignationEdit } from './pages/dms/Company/Designation/DesignationEdit';
+import { DesignationAdd } from './pages/dms/Company/Designation/DesignationAdd';
+/* Employee Mangement */
+import { EmployeeList } from './pages/dms/Company/Employee Management/EmployeeList'
+import { EmployeeAdd } from './pages/dms/Company/Employee Management/EmployeeAdd'
+import { EmployeeEdit } from './pages/dms/Company/Employee Management/EmployeeEdit'
+import { EmployeeView } from './pages/dms/Company/Employee Management/EmployeeView';
+/* Employee Role */
+import { EmployeeRole } from './pages/dms/Company/EmployeeRole/EmployeeRole';
+import { EmployeeRoleAdd } from './pages/dms/Company/EmployeeRole/EmployeeRoleAdd';
+import { EmployeeRoleEdit } from './pages/dms/Company/EmployeeRole/EmployeeRoleEdit';
+import { EmployeeRoleView } from './pages/dms/Company/EmployeeRole/EmployeeRoleView';
+/* Role Permission */
+import { RolePermission } from './pages/dms/Company/RolePermission/RolePermission';
+import { RolePermissionAdd } from './pages/dms/Company/RolePermission/RolePermissionAdd';
+import { RolePermissionEdit } from './pages/dms/Company/RolePermission/RolePermissionEdit';
+import { RolePermissionView } from './pages/dms/Company/RolePermission/RolePermissionView';
+/* Activity log */
+import { ActivityList } from './pages/dms/Company/ActivityLogs/ActivityList';
+import { ActivityAdd } from './pages/dms/Company/ActivityLogs/ActivityAdd';
+import { ActivityView } from './pages/dms/Company/ActivityLogs/ActivityView';
+
 /* User Management */
 import { UserAdd } from './pages/dms/Users/UserAdd';
 import { UserEdit } from './pages/dms/Users/UserEdit';
@@ -112,6 +140,36 @@ function App() {
         <Route path='/login' element={<Login />} />
         <Route path='/forget-password' element={<ForgetPassword />} />
         <Route path='/reset-password' element={<ResetPassword />} />
+
+     {/* Employee and Staff management */}
+      {/* Department */}
+      <Route path='/department' element={<DepartmentList />} />
+      <Route path='/department/add' element={<DepartmentAdd />} />
+      <Route path='/department/edit' element={<DepartmentEdit />} />
+      {/* Designation */}
+      <Route path='/designation' element={<DesignationList />} />
+      <Route path='/designation/add' element={<DesignationAdd />} />
+      <Route path='/designation/edit' element={<DesignationEdit />} />
+      {/* Employee */}
+      <Route path='/employee' element={<EmployeeList />} />
+      <Route path='/employee/add' element={<EmployeeAdd />} />
+      <Route path='/employee/edit' element={<EmployeeEdit />} />
+      <Route path='/employee/view' element={<EmployeeView />} />
+      {/* Employee Roles */}
+      <Route path='/employee-roles' element={<EmployeeRole />} />
+      <Route path='/employee-role/add' element={<EmployeeRoleAdd />} />
+      <Route path='/employee-role/edit' element={<EmployeeRoleEdit />} />
+      <Route path='/employee-role/view' element={<EmployeeRoleView />} />
+      {/* Employee Permission */}
+      <Route path='/role-permission' element={<RolePermission />} />
+      <Route path='/role-permisssion/add' element={<RolePermissionAdd />} />
+      <Route path='/role-permission/edit' element={<RolePermissionEdit />} />
+      <Route path='/role-permission/view' element={<RolePermissionView />} />
+      {/* Activity Logs */}
+      <Route path='/activity-logs' element={<ActivityList />} />
+      <Route path='/activity-logs/add' element={<ActivityAdd />} />
+      <Route path='/activity-logs/view' element={<ActivityView />} />
+
         {/* User Management */}
         {/* User */}
         <Route path='/user' element={<UserList />} />

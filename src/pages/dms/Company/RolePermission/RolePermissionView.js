@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { AdminLayout } from '../../../layouts/dms/AdminLayout/AdminLayout';
+import { AdminLayout } from '../../../../layouts/dms/AdminLayout/AdminLayout';
 import { Table, Form, Card } from 'react-bootstrap';
 
 export const RolePermissionView = () => {

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Card, Row, Col, Badge, Button } from 'react-bootstrap';
-import { AdminLayout } from '../../../layouts/dms/AdminLayout/AdminLayout';
+import { AdminLayout } from '../../../../layouts/dms/AdminLayout/AdminLayout';
 import { useNavigate } from 'react-router-dom';
 
 export const ActivityView = () => {

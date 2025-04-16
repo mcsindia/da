@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Button, Table, Form, InputGroup, Pagination, Dropdown, DropdownButton } from 'react-bootstrap';
 import { FaEdit, FaTrash, FaFileExport, FaPlus, FaFileExcel, FaFilePdf } from 'react-icons/fa';
-import { AdminLayout } from '../../../layouts/dms/AdminLayout/AdminLayout';
+import { AdminLayout } from '../../../../layouts/dms/AdminLayout/AdminLayout';
 import { useNavigate } from 'react-router-dom';
 
 export const DesignationList = () => {

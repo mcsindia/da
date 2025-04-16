@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { AdminLayout } from '../../../layouts/dms/AdminLayout/AdminLayout';
+import { AdminLayout } from '../../../../layouts/dms/AdminLayout/AdminLayout';
 import { Tabs, Tab, Form, Button, Row, Col, Table } from 'react-bootstrap';
-import profile_img from '../../../assets/images/profile.png';
+import profile_img from '../../../../assets/images/profile.png';
 
 export const EmployeeAdd = () => {
   const [formData, setFormData] = useState({});

@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { AdminLayout } from '../../../layouts/dms/AdminLayout/AdminLayout';
+import { AdminLayout } from '../../../../layouts/dms/AdminLayout/AdminLayout';
 import { Form, Button, Row, Col, Container, Tabs, Tab, Table } from 'react-bootstrap';
 import { useNavigate, useLocation } from 'react-router-dom';
-import profile_img from '../../../assets/images/profile.png';
+import profile_img from '../../../../assets/images/profile.png';
 
 export const EmployeeEdit = () => {
   const location = useLocation();

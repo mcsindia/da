@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button, Container, Form } from 'react-bootstrap';
 import { FaSave, FaArrowLeft } from 'react-icons/fa';
-import { AdminLayout } from '../../../layouts/dms/AdminLayout/AdminLayout';
+import { AdminLayout } from '../../../../layouts/dms/AdminLayout/AdminLayout';
 
 export const DesignationAdd = () => {
   const navigate = useNavigate();

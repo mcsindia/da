@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Button, Table, InputGroup, Form, Pagination, Dropdown, DropdownButton, Modal } from 'react-bootstrap';
 import { FaEdit, FaTrash, FaEye, FaFileExport, FaPlus, FaFileExcel, FaFilePdf} from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
-import { AdminLayout } from '../../../layouts/dms/AdminLayout/AdminLayout';
+import { AdminLayout } from '../../../../layouts/dms/AdminLayout/AdminLayout';
 
 export const RolePermission = () => {
   const navigate = useNavigate();
